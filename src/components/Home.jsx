@@ -19,7 +19,7 @@ const Home = () => {
         </Link>
       </div>
 
-      <div className="-translate-y-[50%] md:-translate-y-10 max-w-[300px] md:max-w-[500px] w-[70%] md:w-[45%]  md:-translate-x-7  relative sneakerImage">
+      <div className="ml-auto sm:ml-0 -translate-y-[50%] md:-translate-y-10 max-w-[300px] md:max-w-[500px] w-[70%] md:w-[45%]  md:-translate-x-7  relative sneakerImage">
         <img
           loading="lazy"
           className="w-max -rotate-[25deg]"
