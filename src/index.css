@@ -59,7 +59,7 @@ body {
 }
 
 .navOverlay {
-  @apply fixed w-full h-full top-0 left-0 z-10 bg-primary-100;
+  @apply fixed w-full h-full top-0 left-0 z-[49] bg-primary-100;
 }
 
 .section {
