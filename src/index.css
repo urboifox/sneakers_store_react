@@ -74,5 +74,5 @@ body {
 }
 
 .sneakerImage::before {
-  @apply content-[""] absolute left-[50%] -translate-x-1/2 -translate-y-1/2 top-[50%] w-full aspect-square bg-primary-100 rounded-full -z-10;
+  @apply content-[""] absolute left-[55%] -translate-x-1/2 -translate-y-1/2 top-[60%] w-full aspect-square bg-primary-100 rounded-full -z-10;
 }
