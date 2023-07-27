@@ -2,7 +2,7 @@
 const SectionHeadline = ({ text }) => {
   return (
     <>
-      <div className="sectionHeadline strokeText">
+      <div className="container mx-auto  sectionHeadline strokeText">
         <h1>{text}</h1>
         <h1 className="strokeText absolute top-[1px] left-[2px] w-full ">
           {text}

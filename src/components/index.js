@@ -14,9 +14,15 @@ import ProductCard from "./ProductCard";
 import SectionHeadline from "./SectionHeadline";
 import Loader from "./Loader";
 import HeartIcon from "./HeartIcon";
+import SkeletonCard from "./SkeletonCard";
+import Footer from "./Footer";
+import FooterCols from "./FooterCols";
 
 export {
   About,
+  FooterCols,
+  Footer,
+  SkeletonCard,
   HeartIcon,
   Loader,
   SectionHeadline,

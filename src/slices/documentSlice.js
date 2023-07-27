@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  loaded: false,
+  isLoading: true,
 };
 
 const documentSlice = createSlice({
   name: "document",
   initialState,
   reducers: {
-    setLoaded: (state) => {
-      state.loaded = true;
+    setIsLoading: (state) => {
+      state.isLoading = false;
     },
   },
 });
 
-export const { setLoaded } = documentSlice.actions;
+export const { setIsLoading } = documentSlice.actions;
 export default documentSlice;

@@ -13,7 +13,7 @@ const Women = () => {
   return (
     <>
       <SectionHeadline text="women's collection" />
-      <section className="itemsGrid itemsSection">
+      <section className="container mx-auto  itemsGrid itemsSection">
         {womenItems.map((e) => {
           return <ProductCard element={e} key={e.id} />;
         })}

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="section flex items-center sm:text-center md:text-start flex-col justify-between md:justify-evenly md:flex-row">
+    <div className="container mx-auto  section flex items-center sm:text-center md:text-start flex-col justify-between md:justify-evenly md:flex-row">
       <div className="relative z-20">
         <h1 className="leading-[40px] sm:text-center md:text-start md:leading-[55px] xl:!leading-[70px] text-[2.1rem] font-medium text-start md:text-5xl xl:text-6xl">
           Explore <span className="text-primary-200 font-bold">Sneakers</span>

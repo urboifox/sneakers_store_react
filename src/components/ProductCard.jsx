@@ -16,9 +16,10 @@ const Product = ({ element }) => {
     <article>
       <div className="relative overflow-hidden rounded-xl group bg-[#f5f5f5]">
         <img
-          className="aspect-square object-cover md:group-hover:scale-110 transitionMe -translate-y-5"
+          className="w-full aspect-square object-cover md:group-hover:scale-110 transitionMe -translate-y-5"
           src={element.img}
           alt={element.name}
+          loading="lazy"
         />
         {element.discount ? (
           <span className="bg-primary-100 shadow-md text-sec-400 px-2 py-1 rounded-md font-bold text-xs absolute top-4 left-4">
@@ -53,7 +54,7 @@ const Product = ({ element }) => {
         <span className="inline-block font-bold text-xs text-sec-300">
           {element.company}
         </span>
-        <button className="aspect-square bg-primary-100 transitionMe shadow-md hover:bg-primary-300 rounded-md p-[5px]">
+        <button className="aspect-square bg-primary-100 transitionMe shadow-md hover:bg-primary-200 rounded-md p-[5px]">
           <img className="w-5" src={addToCart} alt="add to cart button" />
         </button>
       </div>

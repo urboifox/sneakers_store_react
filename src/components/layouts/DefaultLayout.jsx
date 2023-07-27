@@ -1,14 +1,15 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../Navbar";
 
 import { useEffect } from "react";
 import axios from "axios";
 import { initiateFavourites, setMainData } from "../../slices/dataSlice";
 import { useDispatch } from "react-redux";
-import { setLoaded } from "../../slices/documentSlice";
-import { Loader } from "../";
+import { setIsLoading } from "../../slices/documentSlice";
+import Footer from "../Footer";
 
 const DefaultLayout = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
     // fetch data once the app loads and set it inside the data slice
@@ -19,25 +20,18 @@ const DefaultLayout = () => {
         dispatch(setMainData(res.data));
         let localStorageData = JSON.parse(localStorage.getItem("favourites"));
         dispatch(initiateFavourites(localStorageData ? localStorageData : {}));
+        dispatch(setIsLoading());
       } catch (error) {
         console.log("error fetching data:", error);
       }
     };
     fetchData();
-
-    const removeLoader = setTimeout(() => {
-      dispatch(setLoaded());
-    }, 1000);
-
-    return () => {
-      clearTimeout(removeLoader);
-    };
   }, [dispatch]);
   return (
     <>
-      <Loader />
       <Navbar />
       <Outlet />
+      {location.pathname !== "/" && <Footer />}
     </>
   );
 };

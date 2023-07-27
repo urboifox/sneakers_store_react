@@ -85,7 +85,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .sneakerImage::before {
-  @apply content-[""] absolute left-[55%] -translate-x-1/2 -translate-y-1/2 top-[60%] w-full aspect-square bg-primary-100 rounded-full -z-10;
+  @apply content-[""] blur-xl opacity-50 w-[90%] absolute left-[55%] -translate-x-1/2 -translate-y-1/2 top-[60%] aspect-square bg-primary-300 rounded-full -z-10;
 }
 
 .itemsGrid {
@@ -104,4 +104,20 @@ body::-webkit-scrollbar-thumb {
   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: hsl(220 13% 13%);
+}
+
+.footerGrid {
+  @apply grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 30px;
+}
+
+footer h3 {
+  @apply font-[500] text-xl mb-4 text-primary-100;
+}
+footer li {
+  @apply mb-2;
+}
+footer li a {
+  @apply transitionMe hover:text-primary-100;
 }
