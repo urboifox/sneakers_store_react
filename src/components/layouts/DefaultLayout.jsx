@@ -25,21 +25,12 @@ const DefaultLayout = () => {
     };
     fetchData();
 
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        dispatch(setLoaded());
-      }, 500);
-    });
+    const removeLoader = setTimeout(() => {
+      dispatch(setLoaded());
+    }, 1000);
 
     return () => {
-      removeEventListener("load", () => {
-        setTimeout(() => {
-          dispatch(setLoaded());
-        }, 500);
-      });
-      clearTimeout(() => {
-        dispatch(setLoaded());
-      }, 500);
+      clearTimeout(removeLoader);
     };
   }, [dispatch]);
   return (
