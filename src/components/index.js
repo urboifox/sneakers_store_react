@@ -13,8 +13,11 @@ import Profile from "./Profile";
 import ProductCard from "./ProductCard";
 import SectionHeadline from "./SectionHeadline";
 import Loader from "./Loader";
+import HeartIcon from "./HeartIcon";
+
 export {
   About,
+  HeartIcon,
   Loader,
   SectionHeadline,
   Cart,

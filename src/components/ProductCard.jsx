@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
 import addToCart from "../assets/icon-add.svg";
 import heart from "../assets/heart-outline.svg";
-import heartFilled from "../assets/heart.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavouriteItem } from "../slices/dataSlice";
+import HeartIcon from "./HeartIcon";
+
 const Product = ({ element }) => {
   const dispatch = useDispatch();
   const favourites = useSelector((state) => state.items.favourites);
   const handleFavToggle = () => {
     dispatch(toggleFavouriteItem(element.id));
   };
+
   return (
     <article>
       <div className="relative overflow-hidden rounded-xl group bg-[#f5f5f5]">
@@ -32,11 +34,7 @@ const Product = ({ element }) => {
           onClick={() => handleFavToggle()}
         >
           {favourites[element.id] ? (
-            <img
-              className="w-full"
-              src={heartFilled}
-              alt="Remove from favourites"
-            />
+            <HeartIcon className={"w-full fill-primary-200 "} />
           ) : (
             <img className="w-full" src={heart} alt="Add to favourites" />
           )}
