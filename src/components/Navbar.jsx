@@ -109,13 +109,13 @@ const Navbar = () => {
             </div>
           </animated.ul>
         </article>
-        <article className="flex items-center gap-8">
+        <article className="flex items-center gap-4 sm:gap-8">
           <Link to="/cart">
             <CartIcon class="cursor-pointer fill-sec-300 hover:fill-sec-400 transitionMe" />
           </Link>
           <Link to="/profile">
             <img
-              className="cursor-pointer w-11 rounded-full aspect-square object-cover"
+              className="cursor-pointer w-10 sm:w-11 rounded-full aspect-square object-cover"
               loading="lazy"
               src={avatar}
               alt="profile image"

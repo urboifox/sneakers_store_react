@@ -10,6 +10,7 @@ import Women from "./Women";
 import CartIcon from "./CartIcon";
 import CloseIcon from "./CloseIcon";
 import Profile from "./Profile";
+import ProductCard from "./ProductCard";
 
 export {
   About,
@@ -17,6 +18,7 @@ export {
   Profile,
   Collections,
   Contact,
+  ProductCard,
   Home,
   Men,
   Navbar,

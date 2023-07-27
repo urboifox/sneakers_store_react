@@ -76,3 +76,12 @@ body {
 .sneakerImage::before {
   @apply content-[""] absolute left-[55%] -translate-x-1/2 -translate-y-1/2 top-[60%] w-full aspect-square bg-primary-100 rounded-full -z-10;
 }
+
+.itemsGrid {
+  @apply py-10;
+}
+.itemsGrid {
+  @apply grid gap-14;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 4rem;
+}
