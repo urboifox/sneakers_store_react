@@ -5,6 +5,9 @@ import { useEffect } from "react";
 import axios from "axios";
 import { initiateFavourites, setMainData } from "../../slices/dataSlice";
 import { useDispatch } from "react-redux";
+import { setLoaded } from "../../slices/documentSlice";
+import { Loader } from "../";
+
 const DefaultLayout = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -12,6 +15,7 @@ const DefaultLayout = () => {
     const fetchData = async () => {
       try {
         let res = await axios.get("https://api.npoint.io/10aea263260ef40221bf");
+        // let res = await axios.get("./ShoesData.json");
         dispatch(setMainData(res.data));
         let localStorageData = JSON.parse(localStorage.getItem("favourites"));
         dispatch(initiateFavourites(localStorageData ? localStorageData : {}));
@@ -20,9 +24,27 @@ const DefaultLayout = () => {
       }
     };
     fetchData();
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        dispatch(setLoaded());
+      }, 500);
+    });
+
+    return () => {
+      removeEventListener("load", () => {
+        setTimeout(() => {
+          dispatch(setLoaded());
+        }, 500);
+      });
+      clearTimeout(() => {
+        dispatch(setLoaded());
+      }, 500);
+    };
   }, [dispatch]);
   return (
     <>
+      <Loader />
       <Navbar />
       <Outlet />
     </>

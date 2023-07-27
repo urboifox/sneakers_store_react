@@ -5,11 +5,16 @@ const Home = () => {
   return (
     <div className="section flex items-center sm:text-center md:text-start flex-col justify-between md:justify-evenly md:flex-row">
       <div className="relative z-20">
-        <h1 className="leading-[45px] sm:text-center md:text-start md:leading-[55px] xl:!leading-[70px] text-[2.1rem] font-medium text-start md:text-5xl xl:text-6xl">
+        <h1 className="leading-[40px] sm:text-center md:text-start md:leading-[55px] xl:!leading-[70px] text-[2.1rem] font-medium text-start md:text-5xl xl:text-6xl">
           Explore <span className="text-primary-200 font-bold">Sneakers</span>
           .
           <br /> Your Ultimate Footwear Destination!
         </h1>
+        <p className="text-xs mt-2 text-sec-300 md:text-base font-medium md:mt-5 max-w-sm lg:max-w-xl max-sm:mx-0 max-md:mx-auto">
+          Find the perfect kicks that blend fashion and function, ensuring every
+          step is a statement. Step into Sneaker Paradise!
+        </p>
+
         <Link to="/collections">
           <button className="bg-primary-200 mt-6 btn-primary">Explore</button>
         </Link>

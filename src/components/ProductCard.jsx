@@ -14,7 +14,7 @@ const Product = ({ element }) => {
     <article>
       <div className="relative overflow-hidden rounded-xl group bg-[#f5f5f5]">
         <img
-          className="aspect-square object-cover group-hover:scale-110 transitionMe -translate-y-5"
+          className="aspect-square object-cover md:group-hover:scale-110 transitionMe -translate-y-5"
           src={element.img}
           alt={element.name}
         />

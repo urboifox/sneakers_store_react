@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import { useSelector } from "react-redux";
-import { ProductCard } from ".";
+import { ProductCard, SectionHeadline } from ".";
 import { createSelector } from "reselect";
 
 const selectWomenItems = createSelector(
@@ -9,14 +9,16 @@ const selectWomenItems = createSelector(
 );
 
 const Women = () => {
-  console.log("women");
   const womenItems = useSelector(selectWomenItems);
   return (
-    <section className="itemsGrid itemsSection">
-      {womenItems.map((e) => {
-        return <ProductCard element={e} key={e.id} />;
-      })}
-    </section>
+    <>
+      <SectionHeadline text="women's collection" />
+      <section className="itemsGrid itemsSection">
+        {womenItems.map((e) => {
+          return <ProductCard element={e} key={e.id} />;
+        })}
+      </section>
+    </>
   );
 };
 

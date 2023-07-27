@@ -11,9 +11,12 @@ import CartIcon from "./CartIcon";
 import CloseIcon from "./CloseIcon";
 import Profile from "./Profile";
 import ProductCard from "./ProductCard";
-
+import SectionHeadline from "./SectionHeadline";
+import Loader from "./Loader";
 export {
   About,
+  Loader,
+  SectionHeadline,
   Cart,
   Profile,
   Collections,

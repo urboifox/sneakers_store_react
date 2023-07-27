@@ -43,7 +43,7 @@ const Navbar = () => {
           ></animated.div>
           <animated.ul
             style={menuAnimation}
-            className={`flex items-center justify-center max-md:bg-white z-50 top-0 fixed w-full h-full md:static`}
+            className={`flex items-center justify-center max-md:bg-white z-[999999] md:z-50 top-0 fixed w-full h-full md:static`}
           >
             <div className="md:gap-8 justify-between h-full py-16 pt-5 w-full navGrid md:flex md:flex-row md:py-0">
               <li

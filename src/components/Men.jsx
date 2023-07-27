@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { ProductCard } from ".";
+import { ProductCard, SectionHeadline } from ".";
 import { createSelector } from "reselect";
 
 const selectMenItems = createSelector(
@@ -10,13 +10,15 @@ const selectMenItems = createSelector(
 const Men = () => {
   const items = useSelector(selectMenItems);
   const menItems = items.filter((item) => item.category === "men");
-  console.log("man");
   return (
-    <section className="itemsGrid itemsSection">
-      {menItems.map((e) => {
-        return <ProductCard element={e} key={e.id} />;
-      })}
-    </section>
+    <>
+      <SectionHeadline text="men's collection" />
+      <section className="itemsGrid itemsSection">
+        {menItems.map((e) => {
+          return <ProductCard element={e} key={e.id} />;
+        })}
+      </section>
+    </>
   );
 };
 
