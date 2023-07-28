@@ -7,11 +7,9 @@ import { toggleFavouriteItem } from "../slices/dataSlice";
 import HeartIcon from "./HeartIcon";
 import { toggleCartItem } from "../slices/cartSlice";
 
-const ProductCard = ({ element, className }) => {
+const CartProductCard = ({ element, className }) => {
   const dispatch = useDispatch();
-  const isFavourite = useSelector(
-    (state) => state.items.favourites[element.id]
-  );
+  const isFavourite = useSelector((state) => state.items.favourites);
   const inCart = useSelector((state) => state.cart.items[element.id]);
 
   const handleFavToggle = () => {
@@ -23,10 +21,22 @@ const ProductCard = ({ element, className }) => {
   };
 
   return (
-    <article className={`${className}`}>
-      <div
+    <article className={`${className} w-full`}>
+      <div className="bg-sec-100 w-full rounded-lg overflow-hidden flex">
+        <div className="w-1/4 bg-[#f5f5f5] group overflow-hidden">
+          <img
+            src={element.img}
+            className="w-full aspect-square md:group-hover:scale-110 transitionMe -translate-y-5 object-cover"
+            alt={element.name}
+          />
+        </div>
+        <div className="p-5 font-[600] text-sec-400">
+          <div>{element.name}</div>
+        </div>
+      </div>
+      {/* <div
         className={`relative transitionMe overflow-hidden rounded-xl group bg-[#f5f5f5] ${
-          isFavourite ? "border border-primary-200 " : ""
+          isFavourite[element.id] ? "border border-primary-200 " : ""
         }`}
       >
         <img
@@ -48,7 +58,7 @@ const ProductCard = ({ element, className }) => {
           className="absolute w-6 top-4 right-4 cursor-pointer"
           onClick={() => handleFavToggle()}
         >
-          {isFavourite ? (
+          {isFavourite[element.id] ? (
             <HeartIcon className={"w-full fill-primary-200 "} />
           ) : (
             <img className="w-full" src={heart} alt="Add to Favourites" />
@@ -83,9 +93,9 @@ const ProductCard = ({ element, className }) => {
             alt="add to cart button"
           />
         </button>
-      </div>
+      </div> */}
     </article>
   );
 };
 
-export default ProductCard;
+export default CartProductCard;

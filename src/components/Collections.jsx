@@ -9,7 +9,7 @@ const Collections = () => {
       <SectionHeadline text="Explore Our Collection" />
       <section className="container mx-auto itemsGrid itemsSection">
         {isLoading ? (
-          <SkeletonCard count={20} />
+          <SkeletonCard count={16} />
         ) : (
           <>
             {items.map((e) => {

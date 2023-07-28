@@ -7,6 +7,7 @@ import {
   Contact,
   Home,
   Men,
+  NotFound,
   ProductPage,
   Profile,
   Women,
@@ -61,6 +62,10 @@ const myRoutes = createBrowserRouter([
       {
         path: "/women/:id",
         element: <ProductPage />,
+      },
+      {
+        path: "/*",
+        element: <NotFound />,
       },
     ],
   },

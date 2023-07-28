@@ -17,9 +17,12 @@ import HeartIcon from "./HeartIcon";
 import SkeletonCard from "./SkeletonCard";
 import Footer from "./Footer";
 import FooterCols from "./FooterCols";
-
+import CartProductCard from "./CartProductCard";
+import NotFound from "./NotFound";
 export {
   About,
+  NotFound,
+  CartProductCard,
   FooterCols,
   Footer,
   SkeletonCard,

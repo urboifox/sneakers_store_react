@@ -15,12 +15,17 @@ body {
 body::-webkit-scrollbar {
   width: 3px;
 }
+.hideScrollBar::-webkit-scrollbar {
+  width: 5px;
+}
 
-body::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track,
+.hideScrollBar::-webkit-scrollbar-track {
   @apply bg-sec-100;
 }
 
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb,
+.hideScrollBar::-webkit-scrollbar-thumb {
   @apply bg-primary-200 rounded-full;
 }
 
@@ -50,7 +55,7 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .container {
-  padding: 0 15px;
+  @apply max-xl:px-4;
 }
 @media screen and (min-width: 1280px) {
   .container {
@@ -78,14 +83,24 @@ body::-webkit-scrollbar-thumb {
 }
 
 .btn-primary {
-  @apply px-8 py-2 rounded-lg text-white font-medium text-base lg:py-3 lg:px-14 lg:text-xl transitionMe;
+  @apply px-8 py-2 rounded-lg text-white bg-primary-200 font-medium text-base lg:py-3 lg:px-14 lg:text-xl transitionMe;
 }
-.btn-primary:hover {
+.btn-primary:hover,
+.btn:hover {
   box-shadow: 3px 3px 10px 0 hsl(26, 100%, 55%);
 }
-
+.btn.clicked,
+.btn.clicked:hover {
+  box-shadow: inset 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+  /* background-color: hsl(25, 100%, 94%); */
+  /* background-color: hsl(26, 100%, 55%); */
+  background-color: hsl(26, 100%, 65%);
+}
+button:disabled {
+  @apply cursor-no-drop bg-primary-300 opacity-60 !shadow-none;
+}
 .sneakerImage::before {
-  @apply content-[""] blur-xl opacity-50 w-[90%] absolute left-[55%] -translate-x-1/2 -translate-y-1/2 top-[60%] aspect-square bg-primary-300 rounded-full -z-10;
+  @apply content-[""] blur-xl opacity-20 w-[90%] absolute left-[55%] -translate-x-1/2 -translate-y-1/2 top-[60%] aspect-square bg-primary-300 rounded-full -z-10;
 }
 
 .itemsGrid {
@@ -120,4 +135,23 @@ footer li {
 }
 footer li a {
   @apply transitionMe hover:text-primary-100;
+}
+
+.popup {
+  @apply hidden absolute text-xs w-max left-1/2 -translate-x-1/2 -top-10 transitionMe font-bold opacity-0 bg-primary-100 px-2 py-2 rounded-md;
+}
+.popup {
+  animation: opacityAnimation 300ms forwards 0.5s ease;
+  -webkit-animation: opacityAnimation 300ms forwards 0.5s ease;
+}
+
+.opacityAnimation {
+}
+@keyframes opacityAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
 }

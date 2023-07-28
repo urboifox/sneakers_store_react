@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import { useSelector } from "react-redux";
-import { ProductCard, SectionHeadline } from ".";
+import { ProductCard, SectionHeadline, SkeletonCard } from ".";
 import { createSelector } from "reselect";
 
 const selectWomenItems = createSelector(
@@ -10,13 +10,21 @@ const selectWomenItems = createSelector(
 
 const Women = () => {
   const womenItems = useSelector(selectWomenItems);
+  const isLoading = useSelector((state) => state.document.isLoading);
+
   return (
     <>
       <SectionHeadline text="women's collection" />
       <section className="container mx-auto  itemsGrid itemsSection">
-        {womenItems.map((e) => {
-          return <ProductCard element={e} key={e.id} />;
-        })}
+        {isLoading ? (
+          <SkeletonCard count={8} />
+        ) : (
+          <>
+            {womenItems.map((e) => {
+              return <ProductCard element={e} key={e.id} />;
+            })}
+          </>
+        )}
       </section>
     </>
   );
