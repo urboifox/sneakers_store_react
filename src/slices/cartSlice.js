@@ -12,7 +12,11 @@ const cartSlice = createSlice({
       state.items = action.payload;
     },
     toggleCartItem: (state, action) => {
-      state.items[action.payload] = !state.items[action.payload];
+      if (state.items[action.payload]) {
+        delete state.items[action.payload];
+      } else {
+        state.items[action.payload] = true;
+      }
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
   },

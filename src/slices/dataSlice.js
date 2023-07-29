@@ -14,6 +14,7 @@ const dataSlice = createSlice({
     },
     initiateFavourites: (state, action) => {
       state.favourites = action.payload;
+      localStorage.setItem("favourites", JSON.stringify(state.favourites));
     },
     toggleFavouriteItem: (state, action) => {
       let id = action.payload;

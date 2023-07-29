@@ -8,6 +8,9 @@
   box-sizing: border-box;
   user-select: none;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-size: 16px;
   font-family: "Kumbh Sans", sans-serif;
@@ -88,6 +91,7 @@ body::-webkit-scrollbar-thumb,
 .btn-primary:hover,
 .btn:hover {
   box-shadow: 3px 3px 10px 0 hsl(26, 100%, 55%);
+  @apply max-md:shadow-none;
 }
 .btn.clicked,
 .btn.clicked:hover {
@@ -138,7 +142,7 @@ footer li a {
 }
 
 .popup {
-  @apply hidden absolute text-xs w-max left-1/2 -translate-x-1/2 -top-10 transitionMe font-bold opacity-0 bg-primary-100 px-2 py-2 rounded-md;
+  @apply hidden absolute max-md:hidden text-xs w-max left-1/2 -translate-x-1/2 -top-10 transitionMe font-bold opacity-0 bg-primary-100 px-2 py-2 rounded-md;
 }
 .popup {
   animation: opacityAnimation 300ms forwards 0.5s ease;
@@ -154,4 +158,8 @@ footer li a {
   to {
     opacity: 100%;
   }
+}
+
+.disabled {
+  @apply cursor-no-drop opacity-50 hover:shadow-none;
 }

@@ -8,8 +8,7 @@ const selectMenItems = createSelector(
 );
 
 const Men = () => {
-  const items = useSelector(selectMenItems);
-  const menItems = items.filter((item) => item.category === "men");
+  const menItems = useSelector(selectMenItems);
   const isLoading = useSelector((state) => state.document.isLoading);
 
   return (

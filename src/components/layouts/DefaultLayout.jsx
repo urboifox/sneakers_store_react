@@ -8,6 +8,7 @@ import { initiateCart } from "../../slices/cartSlice";
 import { useDispatch } from "react-redux";
 import { setIsLoading } from "../../slices/documentSlice";
 import Footer from "../Footer";
+import ScrollToTop from "../ScrollToTop";
 
 const DefaultLayout = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const DefaultLayout = () => {
   }, [dispatch]);
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <Outlet />
       <Footer />

@@ -52,7 +52,7 @@ const myRoutes = createBrowserRouter([
       },
       // Dynamic route for item details on collections page
       {
-        path: "/collection/:id",
+        path: "/collections/:id",
         element: <ProductPage />,
       },
       {

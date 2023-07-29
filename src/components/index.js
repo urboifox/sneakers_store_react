@@ -19,8 +19,14 @@ import Footer from "./Footer";
 import FooterCols from "./FooterCols";
 import CartProductCard from "./CartProductCard";
 import NotFound from "./NotFound";
+import TrashIcon from "./TrashIcon";
+import ScrollToTop from "./ScrollToTop";
+import Arrow from "./Arrow";
 export {
   About,
+  Arrow,
+  ScrollToTop,
+  TrashIcon,
   NotFound,
   CartProductCard,
   FooterCols,
