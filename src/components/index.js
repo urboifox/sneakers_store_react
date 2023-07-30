@@ -27,10 +27,12 @@ import PlusIcon from "./PlusIcon";
 import MinusIcon from "./MinusIcon";
 import Tumbleweed from "./Tumbleweed";
 import ChevronDown from "./ChevronDown";
+import ScrollTopRoute from "./ScrollTopRoute";
 
 export {
   About,
   Tumbleweed,
+  ScrollTopRoute,
   MinusIcon,
   ChevronDown,
   PlusIcon,

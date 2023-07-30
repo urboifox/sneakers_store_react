@@ -15,20 +15,17 @@ const Cart = () => {
   const cartItems = allItems.filter((item) => cartElementsCount[item.id]);
   const isLoading = useSelector((state) => state.document.isLoading);
   const PRICE = cartItems.reduce(
+    (acc, curr) =>
+      acc +
+      (curr.oldPrice > 0 ? curr.oldPrice : curr.price) *
+        cartElementsCount[curr.id],
+    0
+  );
+  const TOTAL = cartItems.reduce(
     (acc, curr) => acc + curr.price * cartElementsCount[curr.id],
     0
   );
-  const DISCOUNT = cartItems
-    .reduce((acc, curr) => {
-      if (curr.oldPrice && curr.oldPrice !== curr.price) {
-        return acc + ((curr.oldPrice - curr.price) / curr.oldPrice) * 100;
-      } else {
-        return acc;
-      }
-    }, 0)
-    .toFixed(0);
-
-  const TOTAL = (PRICE - (DISCOUNT / 100) * PRICE).toFixed(1);
+  const DISCOUNT = Math.abs(TOTAL - PRICE);
 
   return (
     <>
@@ -82,7 +79,7 @@ const Cart = () => {
                 </p>
                 <p>
                   Discount:{" "}
-                  <span className="text-sec-300 font-bold">{DISCOUNT}%</span>
+                  <span className="text-sec-300 font-bold">${DISCOUNT}</span>
                 </p>
               </div>
               <div className="border-sec-200 p-4 rounded-lg border">

@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { setIsLoading } from "../../slices/documentSlice";
 import Footer from "../Footer";
 import ScrollToTop from "../ScrollToTop";
+import { ScrollTopRoute } from "..";
 
 const DefaultLayout = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const DefaultLayout = () => {
   return (
     <>
       <ScrollToTop />
+      <ScrollTopRoute />
       <Navbar />
       <Outlet />
       <Footer />
