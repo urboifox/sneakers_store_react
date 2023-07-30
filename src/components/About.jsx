@@ -8,7 +8,7 @@ const About = () => {
     window.scrollTo(0, window.innerHeight);
   };
   return (
-    <div>
+    <div className="aboutPage">
       <section className="flex-col h-[calc(100vh-6rem)] flex items-center justify-center bg-primary-100">
         <h1 className="flex-1 flex items-center justify-center flex-col text-4xl md:text-6xl xl:text-9xl text-center font-bold text-sec-300 uppercase">
           The Story Of{" "}

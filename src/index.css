@@ -223,6 +223,10 @@ footer li a {
   -webkit-animation: floating 3s infinite ease-in-out;
 }
 
+.aboutPage p {
+  @apply lg:text-xl;
+}
+
 @keyframes pebblesAnim {
   0% {
     right: -20%;
