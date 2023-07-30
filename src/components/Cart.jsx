@@ -34,7 +34,7 @@ const Cart = () => {
         <div className="w-full">
           {isLoading ? (
             // Show skeleton when data is loading
-            <div className=" flex flex-col gap-5 flex-1 max-h-96 md:max-h-[32rem] overflow-scroll overflow-x-hidden rounded-lg border-sec-400 p-5  hideScrollBar">
+            <div className=" flex flex-col gap-5 max-h-[26rem] md:max-h-[32rem] overflow-scroll overflow-x-hidden rounded-lg border-sec-400 p-5  hideScrollBar">
               {Array.from({ length: 2 }).map((_, index) => (
                 <Skeleton key={index} height={235} width={"100%"} />
               ))}
@@ -43,7 +43,7 @@ const Cart = () => {
             <>
               {cartItems?.length > 0 ? (
                 <>
-                  <div className="flex flex-col gap-5 flex-1 max-h-96 md:max-h-[32rem] overflow-scroll overflow-x-hidden rounded-lg border-sec-400 p-5 hideScrollBar">
+                  <div className="flex flex-col gap-5 max-h-[26rem] md:max-h-[32rem] overflow-scroll overflow-x-hidden rounded-lg border-sec-400 p-5 hideScrollBar">
                     {cartItems.map((e) => {
                       return <CartProductCard element={e} key={e.id} />;
                     })}
@@ -69,7 +69,7 @@ const Cart = () => {
             </>
           )}
         </div>
-        <div className="flex flex-col sm:flex-row sm:justify-around w-full items-center lg:flex-col lg:w-max">
+        <div className="flex flex-col sm:flex-row sm:justify-around w-full items-center lg:flex-col lg:max-w-lg">
           <div className="cartPrices max-w-xs  text-xl font-medium text-sec-400 w-full my-8">
             <div className="flex flex-col gap-4">
               <div className="border-sec-200 p-4 rounded-lg border">

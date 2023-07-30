@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 const HeartIcon = ({ className }) => {
   return (
     <svg

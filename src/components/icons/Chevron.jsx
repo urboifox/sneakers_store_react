@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 const Chevron = ({ className }) => {
   return (
     <svg

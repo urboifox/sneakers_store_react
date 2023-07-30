@@ -168,13 +168,13 @@ footer li a {
 }
 
 .INCDEC {
-  @apply self-end md:self-center  flex items-center md:mt-2 md:mb-0 mb-4 mr-4  md:mr-auto gap-3 ml-auto;
+  @apply self-end  flex items-center mb-4 mr-4 ml-auto bg-white rounded-lg;
 }
 .INCDEC > div {
-  @apply font-medium text-2xl border border-sec-200 h-fit p-3 rounded-lg;
+  @apply font-medium text-2xl h-full p-3 rounded-lg;
 }
 .INCDEC > button {
-  @apply bg-primary-200 transitionMe md:opacity-70 p-2 rounded-full;
+  @apply transitionMe p-5 h-full;
 }
 
 .animation-container {

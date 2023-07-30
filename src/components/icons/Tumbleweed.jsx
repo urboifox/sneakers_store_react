@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 const Tumbleweed = ({ className }) => {
   return (
     <svg

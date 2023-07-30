@@ -2,7 +2,7 @@
 import heart from "../assets/heart-outline.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavouriteItem } from "../slices/dataSlice";
-import { HeartIcon, MinusIcon, PlusIcon, TrashIcon } from "./";
+import { HeartIcon, MinusIcon, PlusIcon, RatingStars, TrashIcon } from "./";
 import {
   decrementCartItem,
   incrementCartItem,
@@ -46,13 +46,16 @@ const CartProductCard = ({ element, className }) => {
           />
         </div>
         <div className="flex flex-col self-start w-40 justify-center pt-5 pl-5 font-[600] text-sec-400">
-          <div className="mb-1 md:mb-2 text-sm md:text-base">
-            {element.name}
-          </div>
-          <div className="text-xs md:text-sm text-sec-300">
+          <div className="text-xs md:text-base text-primary-200">
             {element.company}
           </div>
-          <div className="mt-2 md:mt-4 flex items-center gap-2">
+          <div className="text-sm md:text-lg font-bold">{element.name}</div>
+
+          <div className="mt-2">
+            <RatingStars className={`!w-6`} rate={element.rate} />
+          </div>
+
+          <div className="mt-4 flex items-center gap-2">
             {element.discount && (
               <span className="text-sec-300 line-through">
                 ${element.oldPrice}
@@ -63,7 +66,6 @@ const CartProductCard = ({ element, className }) => {
             </span>
           </div>
         </div>
-        <div>{/* RATING */}</div>
         <div className="flex items-center gap-3 absolute top-5 right-5">
           <button
             className="w-6 cursor-pointer"
@@ -90,14 +92,14 @@ const CartProductCard = ({ element, className }) => {
             }`}
             onClick={() => handleItemDecrement()}
           >
-            <MinusIcon className="fill-white scale-90 w-4 aspect-square" />
+            <MinusIcon className="fill-primary-200 scale-90 w-5 aspect-square" />
           </button>
           <div>{itemCount}</div>
           <button
             className={`md:hover:opacity-100`}
             onClick={() => handleItemIncrement()}
           >
-            <PlusIcon className="stroke-white w-4 aspect-square" />
+            <PlusIcon className="stroke-primary-200 w-5 aspect-square" />
           </button>
         </div>
       </div>

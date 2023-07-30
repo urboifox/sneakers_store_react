@@ -4,7 +4,7 @@ import removeFromCart from "../assets/remove-from-cart.svg";
 import heart from "../assets/heart-outline.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavouriteItem } from "../slices/dataSlice";
-import HeartIcon from "./HeartIcon";
+import { HeartIcon, RatingStars } from "./";
 import { toggleCartItem } from "../slices/cartSlice";
 
 const ProductCard = ({ element, className }) => {
@@ -23,7 +23,7 @@ const ProductCard = ({ element, className }) => {
   };
 
   return (
-    <article className={`${className}`}>
+    <article className={`${className ? className : ""}`}>
       <div
         className={`relative transitionMe overflow-hidden rounded-xl group bg-[#f5f5f5] ${
           isFavourite ? "border border-primary-200 " : ""
@@ -56,7 +56,9 @@ const ProductCard = ({ element, className }) => {
         </div>
       </div>
       <div className="font-[600] text-sec-400  mt-3 text-sm w-full flex items-start justify-between">
-        <h2 className="uppercase text-sm w-[80%]">{element.name}</h2>
+        <span className="inline-block font-medium text-xs text-primary-200">
+          {element.company}
+        </span>
         <div className="flex gap-2">
           {element.discount ? (
             <p className="line-through text-sec-300">${element.oldPrice}</p>
@@ -64,15 +66,19 @@ const ProductCard = ({ element, className }) => {
           <p>${element.price}</p>
         </div>
       </div>
-      <div className="flex mt-3 items-start justify-between">
-        <span className="inline-block font-bold text-xs text-sec-300">
-          {element.company}
-        </span>
+      <div className="flex items-start justify-between">
+        <div className="flex flex-col w-full">
+          <h2 className="uppercase text-sm font-bold w-[80%] mb-2">
+            {element.name}
+          </h2>
+          <RatingStars className={`!w-5`} rate={element.rate} />
+        </div>
+
         <button
           onClick={() => handleInCartToggle()}
           className={`${
             inCart ? "clicked" : ""
-          } relative group w-8 btn aspect-square bg-primary-100 transitionMe md:hover:bg-primary-200 rounded-md p-[5px]`}
+          } relative group mt-3 w-8 btn aspect-square bg-primary-100 transitionMe md:hover:bg-primary-200 rounded-md p-[5px]`}
         >
           <span className="max-lg:hidden popup">
             {inCart ? "Remove From Cart" : "Add To Cart"}
