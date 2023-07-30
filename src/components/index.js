@@ -26,11 +26,13 @@ import Chevron from "./Chevron";
 import PlusIcon from "./PlusIcon";
 import MinusIcon from "./MinusIcon";
 import Tumbleweed from "./Tumbleweed";
+import ChevronDown from "./ChevronDown";
 
 export {
   About,
   Tumbleweed,
   MinusIcon,
+  ChevronDown,
   PlusIcon,
   Chevron,
   Arrow,

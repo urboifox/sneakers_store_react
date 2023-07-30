@@ -76,7 +76,7 @@ const Footer = () => {
           to="https://www.linkedin.com/in/mohamed-ashraf-142659246/"
           target="_blank"
         >
-          Mohamed
+          Fox
         </Link>
       </small>
     </footer>

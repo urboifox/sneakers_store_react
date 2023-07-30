@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@200;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@200;400;500;600;700;800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -218,6 +218,11 @@ footer li a {
   animation: pebblesAnim 3s linear infinite;
 }
 
+.animate-float {
+  animation: floating 3s infinite ease-in-out;
+  -webkit-animation: floating 3s infinite ease-in-out;
+}
+
 @keyframes pebblesAnim {
   0% {
     right: -20%;
@@ -277,5 +282,49 @@ footer li a {
     -moz-transform: rotate(360deg), translate(-50%, -50%);
     -ms-transform: rotate(360deg), translate(-50%, -50%);
     -o-transform: rotate(360deg), translate(-50%, -50%);
+  }
+}
+
+@keyframes floating {
+  from {
+    transform: translate(0, 0px);
+    -webkit-transform: translate(0, 0px);
+    -moz-transform: translate(0, 0px);
+    -ms-transform: translate(0, 0px);
+    -o-transform: translate(0, 0px);
+  }
+  65% {
+    transform: translate(0, -15px);
+    -webkit-transform: translate(0, -15px);
+    -moz-transform: translate(0, -15px);
+    -ms-transform: translate(0, -15px);
+    -o-transform: translate(0, -15px);
+  }
+  to {
+    transform: translate(0, -0px);
+    -webkit-transform: translate(0, -0px);
+    -moz-transform: translate(0, -0px);
+    -ms-transform: translate(0, -0px);
+    -o-transform: translate(0, -0px);
+  }
+}
+
+@keyframes bounceChev {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    -webkit-transform: translateY(-25%);
+    -moz-transform: translateY(-25%);
+    -ms-transform: translateY(-25%);
+    -o-transform: translateY(-25%);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
   }
 }
