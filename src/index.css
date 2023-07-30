@@ -173,3 +173,72 @@ footer li a {
 .INCDEC > button {
   @apply bg-primary-200 transitionMe md:opacity-70 p-2 rounded-full;
 }
+
+.animation-container {
+  @apply relative block text-center border-b-sec-400 border-b-2 md:w-96 md:h-48 w-52 h-44;
+  overflow: hidden;
+}
+.bounce {
+  @apply inline-block absolute bottom-0 left-1/2 w-20 md:w-32 aspect-square;
+}
+
+.bounce {
+  margin-left: -30px;
+  background-size: contain;
+  animation: bounceAnim 1s cubic-bezier(0.63, 0.09, 0.75, 0.46) infinite
+      alternate,
+    spinAnim 3s linear infinite;
+}
+
+.pebble {
+  @apply absolute bg-sec-400;
+}
+.pebble1 {
+  top: 95%;
+  width: 10px;
+  height: 10px;
+  border-radius: 20px 20px 0px 0px;
+  animation: pebblesAnim 1s linear infinite;
+}
+.pebble2 {
+  top: 97%;
+  width: 5px;
+  height: 5px;
+  border-radius: 10px 10px 0px 0px;
+  animation: pebblesAnim 2s linear infinite;
+}
+.pebble3 {
+  top: 98%;
+  width: 3px;
+  height: 3px;
+  border-radius: 20px 20px 0px 0px;
+  animation: pebblesAnim 3s linear infinite;
+}
+
+@keyframes pebblesAnim {
+  0% {
+    right: -20%;
+  }
+  100% {
+    right: 110%;
+  }
+}
+
+@keyframes bounceAnim {
+  0%,
+  10% {
+    bottom: 30%;
+  }
+
+  100% {
+    bottom: 0%;
+  }
+}
+@keyframes spinAnim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

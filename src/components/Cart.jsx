@@ -1,5 +1,11 @@
 import { useSelector } from "react-redux";
-import { CartIcon, CartProductCard, Chevron, SectionHeadline } from ".";
+import {
+  CartIcon,
+  CartProductCard,
+  Chevron,
+  SectionHeadline,
+  Tumbleweed,
+} from ".";
 import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 
@@ -48,8 +54,18 @@ const Cart = () => {
                 </>
               ) : (
                 <>
-                  <div className="text-4xl font-bold text-center">
-                    Your Cart is Empty!
+                  <div className="text-xl flex flex-col items-center justify-center font-bold text-center">
+                    <p className="mb-8 font-normal uppercase text-2xl text-sec-400">
+                      Nothing Here..
+                    </p>
+                    <div className="animation-container">
+                      <div className="bounce">
+                        <Tumbleweed className={"fill-sec-400 w-full"} />
+                      </div>
+                      <div className="pebble1 pebble"></div>
+                      <div className="pebble2 pebble"></div>
+                      <div className="pebble3 pebble"></div>
+                    </div>
                   </div>
                 </>
               )}
@@ -78,7 +94,7 @@ const Cart = () => {
             </div>
           </div>
           <div className="flex gap-5 flex-col md:flex-row lg:flex-col">
-            <Link to="/" tabIndex={cartItems.length > 0 ? "" : "-1"}>
+            <Link tabIndex={cartItems.length > 0 ? "" : "-1"}>
               <button
                 tabIndex={-1}
                 disabled={cartItems.length > 0 ? false : true}

@@ -61,18 +61,21 @@ const CartProductCard = ({ element, className }) => {
           </div>
         </div>
         <div className="flex items-center gap-3 absolute top-5 right-5">
-          <div className="w-6 cursor-pointer" onClick={() => handleFavToggle()}>
+          <button
+            className="w-6 cursor-pointer"
+            onClick={() => handleFavToggle()}
+          >
             {isFavourite ? (
               <HeartIcon className={"w-full fill-primary-200"} />
             ) : (
               <img className="w-full" src={heart} alt="Add to Favourites" />
             )}
-          </div>
-          <div onClick={() => handleInCartToggle()}>
+          </button>
+          <button onClick={() => handleInCartToggle()}>
             <TrashIcon
               className={`fill-sec-300 scale-110 transitionMe hover:fill-red-600 cursor-pointer`}
             />
-          </div>
+          </button>
         </div>
         <div className="INCDEC">
           <button
