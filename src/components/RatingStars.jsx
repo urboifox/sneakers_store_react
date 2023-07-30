@@ -5,7 +5,7 @@ import StarIcon from "./icons/StarIcon";
 const RatingStars = ({ className, rate }) => {
   const finalRate = (5 / 100) * rate;
   return (
-    <div className="flex items-center gap-px ml-[5px]">
+    <div className="flex items-center gap-px ml-[-5px]">
       {Array(5)
         .fill(0)
         .map((_, i) => {
