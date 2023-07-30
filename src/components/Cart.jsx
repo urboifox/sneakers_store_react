@@ -37,7 +37,7 @@ const Cart = () => {
         <div className="w-full">
           {isLoading ? (
             // Show skeleton when data is loading
-            <div className=" flex flex-col gap-5 flex-1 max-h-96 md:max-h-[32rem] overflow-scroll overflow-x-hidden rounded-lg border-sec-400 p-2 md:p-5 hideScrollBar">
+            <div className=" flex flex-col gap-5 flex-1 max-h-96 md:max-h-[32rem] overflow-scroll overflow-x-hidden rounded-lg border-sec-400 p-5  hideScrollBar">
               {Array.from({ length: 2 }).map((_, index) => (
                 <Skeleton key={index} height={235} width={"100%"} />
               ))}

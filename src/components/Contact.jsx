@@ -1,5 +1,11 @@
+import SectionHeadline from "./SectionHeadline";
+
 const Contact = () => {
-  return <div>Contact</div>;
+  return (
+    <div>
+      <SectionHeadline text="Contact Us" />
+    </div>
+  );
 };
 
 export default Contact;

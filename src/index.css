@@ -103,8 +103,26 @@ body::-webkit-scrollbar-thumb,
 button:disabled {
   @apply cursor-no-drop bg-primary-300 opacity-60 !shadow-none;
 }
-.sneakerImage::before {
-  @apply content-[""] blur-xl opacity-20 w-[90%] absolute left-[55%] -translate-x-1/2 -translate-y-1/2 top-[60%] aspect-square bg-primary-300 rounded-full -z-10;
+
+.sneakerImage::after {
+  @apply content-[""]  w-[90%] absolute left-[55%] -translate-x-1/2 -translate-y-1/2 top-[60%] aspect-square bg-primary-200 rounded-full -z-20 opacity-100;
+}
+
+.sneakerImage::after {
+  transition: border-radius 0.5s ease-out;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morph 8s ease-in-out infinite both alternate,
+    spinCircle 12s ease-in-out infinite alternate;
+  -webkit-transition: border-radius 0.5s ease-out;
+  -moz-transition: border-radius 0.5s ease-out;
+  -ms-transition: border-radius 0.5s ease-out;
+  -o-transition: border-radius 0.5s ease-out;
+  -webkit-border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  -moz-border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  -ms-border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  -o-border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  -webkit-animation: morph 8s ease-in-out infinite both alternate,
+    spinCircle 12s ease-in-out infinite alternate;
 }
 
 .itemsGrid {
@@ -142,22 +160,7 @@ footer li a {
 }
 
 .popup {
-  @apply hidden absolute max-md:hidden text-xs w-max left-1/2 -translate-x-1/2 -top-10 transitionMe font-bold opacity-0 bg-primary-100 px-2 py-2 rounded-md;
-}
-.popup {
-  animation: opacityAnimation 300ms forwards 0.5s ease;
-  -webkit-animation: opacityAnimation 300ms forwards 0.5s ease;
-}
-
-.opacityAnimation {
-}
-@keyframes opacityAnimation {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100%;
-  }
+  @apply group-hover:opacity-100 group-hover:delay-500 absolute max-md:hidden text-xs w-max left-1/2 -translate-x-1/2 -top-10 transitionMe font-bold opacity-0 bg-primary-100 px-2 py-2 rounded-md;
 }
 
 .disabled {
@@ -165,7 +168,7 @@ footer li a {
 }
 
 .INCDEC {
-  @apply self-end flex items-center mb-4 mr-4 gap-3 ml-auto;
+  @apply self-end md:self-center  flex items-center md:mt-2 md:mb-0 mb-4 mr-4  md:mr-auto gap-3 ml-auto;
 }
 .INCDEC > div {
   @apply font-medium text-2xl border border-sec-200 h-fit p-3 rounded-lg;
@@ -237,8 +240,42 @@ footer li a {
 @keyframes spinAnim {
   0% {
     transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+  }
+  100% {
+    border-radius: 40% 60%;
+  }
+}
+
+@keyframes spinCircle {
+  0% {
+    transform: rotate(0deg), translate(-50%, -50%);
+    -webkit-transform: rotate(0deg), translate(-50%, -50%);
+    -moz-transform: rotate(0deg), translate(-50%, -50%);
+    -ms-transform: rotate(0deg), translate(-50%, -50%);
+    -o-transform: rotate(0deg), translate(-50%, -50%);
+  }
+  100% {
+    transform: rotate(360deg), translate(-50%, -50%);
+    -webkit-transform: rotate(360deg), translate(-50%, -50%);
+    -moz-transform: rotate(360deg), translate(-50%, -50%);
+    -ms-transform: rotate(360deg), translate(-50%, -50%);
+    -o-transform: rotate(360deg), translate(-50%, -50%);
   }
 }

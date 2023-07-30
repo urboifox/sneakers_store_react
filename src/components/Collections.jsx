@@ -6,7 +6,7 @@ const Collections = () => {
   const isLoading = useSelector((state) => state.document.isLoading);
   return (
     <>
-      <SectionHeadline text="Explore Our Collection" />
+      <SectionHeadline text="Explore Our Products" />
       <section className="container mx-auto itemsGrid itemsSection">
         {isLoading ? (
           <SkeletonCard count={16} />
