@@ -163,3 +163,13 @@ footer li a {
 .disabled {
   @apply cursor-no-drop opacity-50 hover:shadow-none;
 }
+
+.INCDEC {
+  @apply self-end flex items-center mb-4 mr-4 gap-3 ml-auto;
+}
+.INCDEC > div {
+  @apply font-medium text-2xl border border-sec-200 h-fit p-3 rounded-lg;
+}
+.INCDEC > button {
+  @apply bg-primary-200 transitionMe md:opacity-70 p-2 rounded-full;
+}

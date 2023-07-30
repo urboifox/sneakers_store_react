@@ -74,7 +74,7 @@ const ProductCard = ({ element, className }) => {
             inCart ? "clicked" : ""
           } relative group w-8 btn aspect-square bg-primary-100 transitionMe md:hover:bg-primary-200 rounded-md p-[5px]`}
         >
-          <span className="popup group-hover:block">
+          <span className="max-lg:hidden popup group-hover:block">
             {inCart ? "Remove From Cart" : "Add To Cart"}
           </span>
           <img

@@ -15,12 +15,25 @@ const cartSlice = createSlice({
       if (state.items[action.payload]) {
         delete state.items[action.payload];
       } else {
-        state.items[action.payload] = true;
+        state.items[action.payload] = 1;
       }
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
+    },
+    incrementCartItem: (state, action) => {
+      state.items[action.payload] += 1;
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
+    },
+    decrementCartItem: (state, action) => {
+      state.items[action.payload] -= 1;
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
   },
 });
 
-export const { initiateCart, toggleCartItem } = cartSlice.actions;
+export const {
+  initiateCart,
+  toggleCartItem,
+  incrementCartItem,
+  decrementCartItem,
+} = cartSlice.actions;
 export default cartSlice;

@@ -22,8 +22,8 @@ const ScrollToTop = () => {
   }, [dispatch]);
   return (
     <div
-      className={`w-12 md:w-16 -z-50 transitionMe opacity-0 hover:opacity-100 flex items-center justify-center cursor-pointer aspect-square bg-primary-200 fixed bottom-10 right-10 rounded-full ${
-        scrolled ? "opacity-50 z-50" : ""
+      className={`scrollTOp w-12 md:w-16 transition-opacity duration-200 opacity-0 md:hover:opacity-100 items-center justify-center cursor-pointer aspect-square bg-primary-200 fixed bottom-6 right-6 md:right-10 md:bottom-10 rounded-full ${
+        scrolled ? "opacity-50 z-50 flex" : "hidden -z-50"
       }`}
       onClick={() => handleScrollToTop()}
     >

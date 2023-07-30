@@ -22,8 +22,15 @@ import NotFound from "./NotFound";
 import TrashIcon from "./TrashIcon";
 import ScrollToTop from "./ScrollToTop";
 import Arrow from "./Arrow";
+import Chevron from "./Chevron";
+import PlusIcon from "./PlusIcon";
+import MinusIcon from "./MinusIcon";
+
 export {
   About,
+  MinusIcon,
+  PlusIcon,
+  Chevron,
   Arrow,
   ScrollToTop,
   TrashIcon,
