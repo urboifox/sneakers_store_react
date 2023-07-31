@@ -20,12 +20,17 @@ const cartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
     incrementCartItem: (state, action) => {
-      state.items[action.payload] += 1;
+      state.items[action.payload] = state.items[action.payload]
+        ? (state.items[action.payload] += 1)
+        : 2;
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
     decrementCartItem: (state, action) => {
       state.items[action.payload] -= 1;
       localStorage.setItem("cartItems", JSON.stringify(state.items));
+    },
+    addToCart: (state, action) => {
+      state.items[action.payload.id] = action.payload.value;
     },
   },
 });
@@ -35,5 +40,6 @@ export const {
   toggleCartItem,
   incrementCartItem,
   decrementCartItem,
+  addToCart,
 } = cartSlice.actions;
 export default cartSlice;

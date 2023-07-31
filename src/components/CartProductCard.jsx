@@ -2,33 +2,28 @@
 import heart from "../assets/heart-outline.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavouriteItem } from "../slices/dataSlice";
-import { HeartIcon, MinusIcon, PlusIcon, RatingStars, TrashIcon } from "./";
-import {
-  decrementCartItem,
-  incrementCartItem,
-  toggleCartItem,
-} from "../slices/cartSlice";
+import { CounterButtons, HeartIcon, RatingStars, TrashIcon } from "./";
+import { toggleCartItem } from "../slices/cartSlice";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const CartProductCard = ({ element, className }) => {
-  const itemCount = useSelector((state) => state.cart.items[element.id]);
   const dispatch = useDispatch();
   const isFavourite = useSelector(
     (state) => state.items.favourites[element.id]
   );
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  const handleGoProduct = () => {
+    location.pathname = ``;
+    navigate(`/collections/${element.id}`);
+  };
   const handleFavToggle = () => {
     dispatch(toggleFavouriteItem(element.id));
   };
 
   const handleInCartToggle = () => {
     dispatch(toggleCartItem(element.id));
-  };
-
-  const handleItemIncrement = () => {
-    dispatch(incrementCartItem(element.id));
-  };
-  const handleItemDecrement = () => {
-    if (itemCount > 1) dispatch(decrementCartItem(element.id));
   };
 
   return (
@@ -49,7 +44,12 @@ const CartProductCard = ({ element, className }) => {
           <div className="text-xs md:text-base text-primary-200">
             {element.company}
           </div>
-          <div className="text-sm md:text-lg font-bold">{element.name}</div>
+          <Link
+            onClick={() => handleGoProduct()}
+            className="text-sm md:text-lg font-bold"
+          >
+            {element.name}
+          </Link>
 
           <div className="mt-2">
             <RatingStars className={`!w-6`} rate={element.rate} />
@@ -83,25 +83,7 @@ const CartProductCard = ({ element, className }) => {
             />
           </button>
         </div>
-        <div className="INCDEC">
-          <button
-            className={`${
-              itemCount > 1
-                ? "md:hover:opacity-100"
-                : "md:opacity-70 cursor-no-drop"
-            }`}
-            onClick={() => handleItemDecrement()}
-          >
-            <MinusIcon className="fill-primary-200 scale-90 w-5 aspect-square" />
-          </button>
-          <div>{itemCount}</div>
-          <button
-            className={`md:hover:opacity-100`}
-            onClick={() => handleItemIncrement()}
-          >
-            <PlusIcon className="stroke-primary-200 w-5 aspect-square" />
-          </button>
-        </div>
+        <CounterButtons id={element.id} />
       </div>
     </article>
   );

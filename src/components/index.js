@@ -30,8 +30,10 @@ import ChevronDown from "./icons/ChevronDown";
 import ScrollTopRoute from "./ScrollTopRoute";
 import RatingStars from "./RatingStars";
 import StarIcon from "./icons/StarIcon";
+import CounterButtons from "./CounterButtons";
 export {
   About,
+  CounterButtons,
   StarIcon,
   RatingStars,
   Tumbleweed,

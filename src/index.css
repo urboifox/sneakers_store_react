@@ -86,7 +86,7 @@ body::-webkit-scrollbar-thumb,
 }
 
 .btn-primary {
-  @apply px-8 py-2 rounded-lg text-white bg-primary-200 font-medium text-base lg:py-3 lg:px-14 lg:text-xl transitionMe;
+  @apply px-8 py-2 rounded-lg text-white bg-primary-200 font-medium text-base lg:py-4 lg:px-14 lg:text-xl transitionMe;
 }
 .btn-primary:hover,
 .btn:hover {
@@ -226,7 +226,9 @@ footer li a {
 .aboutPage p {
   @apply lg:text-xl;
 }
-
+.shadowMe {
+  box-shadow: 5px 5px 5px 0px rgba(29, 32, 37, 0.1);
+}
 @keyframes pebblesAnim {
   0% {
     right: -20%;

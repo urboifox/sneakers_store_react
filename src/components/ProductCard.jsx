@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleFavouriteItem } from "../slices/dataSlice";
 import { HeartIcon, RatingStars } from "./";
 import { toggleCartItem } from "../slices/cartSlice";
+import { Link, useLocation } from "react-router-dom";
 
 const ProductCard = ({ element, className }) => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const isFavourite = useSelector(
     (state) => state.items.favourites[element.id]
@@ -67,12 +69,15 @@ const ProductCard = ({ element, className }) => {
         </div>
       </div>
       <div className="flex items-start justify-between">
-        <div className="flex flex-col w-full">
+        <Link
+          to={`${location.pathname}/${element.id}`}
+          className="flex flex-col w-full cursor-pointer"
+        >
           <h2 className="uppercase text-sm font-bold w-[80%] mb-2">
             {element.name}
           </h2>
           <RatingStars className={`!w-5`} rate={element.rate} />
-        </div>
+        </Link>
 
         <button
           onClick={() => handleInCartToggle()}
