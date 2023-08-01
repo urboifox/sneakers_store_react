@@ -2,17 +2,21 @@
 import { MinusIcon, PlusIcon } from ".";
 import { useDispatch, useSelector } from "react-redux";
 import { decrementCount, incrementCount } from "../slices/countSlice";
+import { decrementCartItem, incrementCartItem } from "../slices/cartSlice";
 
 const CounterButtons = ({ id, className }) => {
   const itemCount = useSelector((state) => state.count.items[id]) || 1;
+  const itemExistInCart = useSelector((state) => state.cart.items[id]);
 
   const dispatch = useDispatch();
 
   const handleItemIncrement = () => {
     dispatch(incrementCount(id));
+    if (itemExistInCart) dispatch(incrementCartItem(id));
   };
   const handleItemDecrement = () => {
     if (itemCount > 1) dispatch(decrementCount(id));
+    if (itemExistInCart) dispatch(decrementCartItem(id));
   };
   return (
     <div className={`INCDEC ${className ? className : ""}`}>

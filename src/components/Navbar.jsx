@@ -114,13 +114,13 @@ const Navbar = () => {
         <article className="flex items-center gap-4 sm:gap-8">
           <Link
             to="/cart"
-            className="cursor-pointer fill-sec-300 gap-1 hover:fill-sec-400 flex text-sec-300 hover:text-sec-400 items-center font-bold"
+            className="relative cursor-pointer fill-sec-300 gap-1 hover:fill-sec-400 flex text-sec-300 hover:text-sec-400 items-center font-bold"
           >
             <CartIcon class="transitionMe" />
             <div className="transitionMe text-xl">
-              {"("}
-              <span className="text-primary-200 text-lg">{cartItemsCount}</span>
-              {")"}
+              <span className="absolute -top-2 -right-2 text-white bg-primary-200 rounded-lg py-px px-2 text-xs">
+                {cartItemsCount}
+              </span>
             </div>
           </Link>
           <Link to="/profile">

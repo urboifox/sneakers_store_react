@@ -18,7 +18,9 @@ const dataSlice = createSlice({
     },
     toggleFavouriteItem: (state, action) => {
       let id = action.payload;
-      state.favourites[id] = !state.favourites[id];
+      state.favourites[id]
+        ? delete state.favourites[id]
+        : (state.favourites[id] = true);
       localStorage.setItem("favourites", JSON.stringify(state.favourites));
     },
   },

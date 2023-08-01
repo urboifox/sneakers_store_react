@@ -26,11 +26,14 @@ const cartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
     decrementCartItem: (state, action) => {
-      state.items[action.payload] -= 1;
+      state.items[action.payload] === 1
+        ? delete state.items[action.payload]
+        : (state.items[action.payload] -= 1);
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
     addToCart: (state, action) => {
       state.items[action.payload.id] = action.payload.value;
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
   },
 });
