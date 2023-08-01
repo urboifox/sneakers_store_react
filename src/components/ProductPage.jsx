@@ -4,11 +4,16 @@ import CounterButtons from "./CounterButtons";
 import CartIcon from "./icons/CartIcon";
 import NotFound from "./NotFound";
 import { addToCart } from "../slices/cartSlice";
-import { changeActiveImage } from "../slices/productPageSlice";
+import {
+  changeActiveImage,
+  showNextImage,
+  showPrevImage,
+} from "../slices/productPageSlice";
 import CardOverlay from "./CardOverlay";
 import ImagePopup from "./ImagePopup";
 import Skeleton from "react-loading-skeleton";
 import { togglePopup } from "../slices/popupSlice";
+import Chevron from "./icons/Chevron";
 
 const ProductPage = () => {
   const currentImageIndex = useSelector((state) => state.product.active);
@@ -31,14 +36,20 @@ const ProductPage = () => {
   const handlePopup = () => {
     dispatch(togglePopup(element.id));
   };
+  const handlePrevImage = () => {
+    dispatch(showPrevImage());
+  };
+  const handleNextImage = () => {
+    dispatch(showNextImage());
+  };
   return (
-    <section className="py-24 flex items-center justify-around container mx-auto">
+    <section className="max-md:pb-20 md:py-24 flex items-center md:justify-center md:container mx-auto flex-col md:flex-row ">
       {element && !isLoading ? (
         <>
           {popupVisible && <ImagePopup element={element} />}
-          <article className="max-w-xl flex px-24 items-center flex-col justify-center">
-            <div className="relative border-white border-2 aspect-square max-w-full flex  items-center justify-center rounded-xl shadowMe overflow-hidden mb-5">
-              <div onClick={() => handlePopup()}>
+          <article className="lg:mb-20 max-w-xl flex md:px-10 xl:pr-44 items-center flex-col justify-center relative">
+            <div className="flex relative md:border-white md:border-2 aspect-square max-w-full  items-center justify-center rounded-xl md:shadowMe overflow-hidden mb-10">
+              <div className="hidden md:block" onClick={() => handlePopup()}>
                 <CardOverlay />
               </div>
               <img
@@ -48,7 +59,22 @@ const ProductPage = () => {
                 loading="lazy"
               />
             </div>
-            <div className=" flex items-center gap-5 justify-between">
+            <div className="md:hidden">
+              <div
+                className="popupChevron right-2 md:right-16"
+                onClick={() => handleNextImage()}
+              >
+                <Chevron />
+              </div>
+              <div
+                className="popupChevron rotate-180 left-2 md:left-16"
+                onClick={() => handlePrevImage()}
+              >
+                <Chevron />
+              </div>
+            </div>
+
+            <div className="hidden md:flex items-center gap-5 justify-between">
               {element.images.map((e, i) => {
                 return (
                   <div
@@ -68,7 +94,7 @@ const ProductPage = () => {
               })}
             </div>
           </article>
-          <article className="max-w-[450px]">
+          <article className="max-sm:px-5 max-w-[600px]">
             <div>
               <div className="text-primary-200 tracking-widest text-xs font-bold uppercase">
                 {element.company}
@@ -97,17 +123,17 @@ const ProductPage = () => {
                 {element.discount ? `$${element.oldPrice}` : ""}
               </div>
             </div>
-            <div className="mt-10 gap-5 flex items-center">
-              <div>
+            <div className="mt-10 gap-5 flex items-center flex-col md:flex-row">
+              <div className="w-full md:w-fit">
                 <CounterButtons
-                  className={`!bg-sec-100 !m-0`}
+                  className={`!bg-sec-100 w-full !m-0 flex justify-between md:w-max`}
                   id={element.id}
                 />
               </div>
-              <div>
+              <div className="w-full">
                 <button
                   onClick={() => handleAddToCart()}
-                  className="w-max btn-primary flex items-center gap-4"
+                  className="w-full justify-center !py-4 md:w-max btn-primary flex items-center gap-4"
                 >
                   <CartIcon class="fill-white" /> Add To Cart
                 </button>
@@ -118,10 +144,10 @@ const ProductPage = () => {
       ) : isLoading ? (
         <>
           <article className="max-w-xl flex px-24 items-center flex-col justify-center">
-            <div className="relative border-white border-2 aspect-square max-w-full flex items-center justify-center rounded-xl shadowMe overflow-hidden mb-5">
+            <div className="relative w-full md:border-white md:border-2 aspect-square max-w-full flex items-center justify-center rounded-xl shadowMe overflow-hidden mb-5">
               <Skeleton height={400} width={400} />
             </div>
-            <div className=" flex items-center gap-5 justify-between">
+            <div className="max-md:hidden flex items-center gap-5 justify-between">
               {Array.from({ length: 4 }).map((_, i) => (
                 <div
                   key={i}

@@ -231,7 +231,7 @@ footer li a {
 }
 
 .popupChevron {
-  @apply absolute transitionMe hover:bg-primary-200 shadow-lg hover:fill-white hover:shadow-primary-200 z-50 w-14 cursor-pointer top-[40%] shadowMe -translate-y-1/2 fill-sec-400 bg-white p-4 rounded-full;
+  @apply absolute transitionMe md:hover:bg-primary-200 shadow-lg md:hover:fill-white md:hover:shadow-primary-200 z-50 w-10 p-3 md:w-14 md:p-4 cursor-pointer top-[40%] shadowMe -translate-y-1/2 fill-sec-400 bg-white rounded-full;
 }
 
 @keyframes pebblesAnim {

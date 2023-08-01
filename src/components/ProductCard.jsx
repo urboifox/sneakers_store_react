@@ -33,14 +33,16 @@ const ProductCard = ({ element, className }) => {
   return (
     <article className={`${className ? className : ""}`}>
       {popupVisible && currentElement === element.id && (
-        <ImagePopup element={element} />
+        <div className="max-md:hidden">
+          <ImagePopup element={element} />
+        </div>
       )}
       <div
         className={`relative transitionMe overflow-hidden rounded-xl group bg-[#f5f5f5] ${
           isFavourite ? "border border-primary-200 " : ""
         }`}
       >
-        <div onClick={() => handlePopup()}>
+        <div className="max-md:hidden" onClick={() => handlePopup()}>
           <CardOverlay />
         </div>
         <img

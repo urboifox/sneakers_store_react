@@ -16,7 +16,7 @@ const CounterButtons = ({ id, className }) => {
   };
   const handleItemDecrement = () => {
     if (itemCount > 1) dispatch(decrementCount(id));
-    if (itemExistInCart) dispatch(decrementCartItem(id));
+    if (itemExistInCart > 1) dispatch(decrementCartItem(id));
   };
   return (
     <div className={`INCDEC ${className ? className : ""}`}>
