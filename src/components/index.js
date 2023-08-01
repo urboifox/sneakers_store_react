@@ -31,8 +31,12 @@ import ScrollTopRoute from "./ScrollTopRoute";
 import RatingStars from "./RatingStars";
 import StarIcon from "./icons/StarIcon";
 import CounterButtons from "./CounterButtons";
+import CardOverlay from "./CardOverlay";
+import ImagePopup from "./ImagePopup";
 export {
   About,
+  ImagePopup,
+  CardOverlay,
   CounterButtons,
   StarIcon,
   RatingStars,

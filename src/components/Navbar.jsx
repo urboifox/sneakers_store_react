@@ -9,6 +9,8 @@ import { useSpring, animated } from "@react-spring/web";
 
 const Navbar = () => {
   const menuVisible = useSelector((state) => state.menu.isVisible);
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartItemsCount = Object.keys(cartItems).length;
   const dispatch = useDispatch();
   const menuAnimation = useSpring({
     left: menuVisible ? "0" : "-100%",
@@ -110,8 +112,16 @@ const Navbar = () => {
           </animated.ul>
         </article>
         <article className="flex items-center gap-4 sm:gap-8">
-          <Link to="/cart">
-            <CartIcon class="cursor-pointer fill-sec-300 hover:fill-sec-400 transitionMe" />
+          <Link
+            to="/cart"
+            className="cursor-pointer fill-sec-300 gap-1 hover:fill-sec-400 flex text-sec-300 hover:text-sec-400 items-center font-bold"
+          >
+            <CartIcon class="transitionMe" />
+            <div className="transitionMe text-xl">
+              {"("}
+              <span className="text-primary-200 text-lg">{cartItemsCount}</span>
+              {")"}
+            </div>
           </Link>
           <Link to="/profile">
             <img

@@ -4,17 +4,20 @@ import removeFromCart from "../assets/remove-from-cart.svg";
 import heart from "../assets/heart-outline.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavouriteItem } from "../slices/dataSlice";
-import { HeartIcon, RatingStars } from "./";
+import { CardOverlay, HeartIcon, ImagePopup, RatingStars } from "./";
 import { toggleCartItem } from "../slices/cartSlice";
 import { Link, useLocation } from "react-router-dom";
+import { togglePopup } from "../slices/popupSlice";
 
 const ProductCard = ({ element, className }) => {
+  const popupVisible = useSelector((state) => state.popup.visible);
   const location = useLocation();
   const dispatch = useDispatch();
   const isFavourite = useSelector(
     (state) => state.items.favourites[element.id]
   );
   const inCart = useSelector((state) => state.cart.items[element.id]);
+  const currentElement = useSelector((state) => state.popup.current);
 
   const handleFavToggle = () => {
     dispatch(toggleFavouriteItem(element.id));
@@ -24,21 +27,30 @@ const ProductCard = ({ element, className }) => {
     dispatch(toggleCartItem(element.id));
   };
 
+  const handlePopup = () => {
+    dispatch(togglePopup(element.id));
+  };
   return (
     <article className={`${className ? className : ""}`}>
+      {popupVisible && currentElement === element.id && (
+        <ImagePopup element={element} />
+      )}
       <div
         className={`relative transitionMe overflow-hidden rounded-xl group bg-[#f5f5f5] ${
           isFavourite ? "border border-primary-200 " : ""
         }`}
       >
+        <div onClick={() => handlePopup()}>
+          <CardOverlay />
+        </div>
         <img
           className="w-full aspect-square object-cover md:group-hover:scale-110 transitionMe -translate-y-5"
-          src={element.img}
+          src={element.images[0]}
           alt={element.name}
           loading="lazy"
         />
         {element.discount ? (
-          <span className="bg-primary-100 shadow-md text-sec-400 px-2 py-1 rounded-md font-bold text-xs absolute top-4 left-4">
+          <span className="z-50 bg-primary-100 shadow-md text-sec-400 px-2 py-1 rounded-md font-bold text-xs absolute top-4 left-4">
             {(
               ((element.oldPrice - element.price) / element.oldPrice) *
               100
@@ -47,13 +59,17 @@ const ProductCard = ({ element, className }) => {
           </span>
         ) : null}
         <div
-          className="absolute w-6 top-4 right-4 cursor-pointer"
+          className="absolute w-6 z-50 top-4 right-4 cursor-pointer"
           onClick={() => handleFavToggle()}
         >
           {isFavourite ? (
             <HeartIcon className={"w-full fill-primary-200 "} />
           ) : (
-            <img className="w-full" src={heart} alt="Add to Favourites" />
+            <img
+              className="w-full heartNoFill"
+              src={heart}
+              alt="Add to Favourites"
+            />
           )}
         </div>
       </div>

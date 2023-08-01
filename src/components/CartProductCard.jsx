@@ -35,7 +35,7 @@ const CartProductCard = ({ element, className }) => {
       >
         <div className="max-md:h-48 max-md:w-full min-w-[135px] flex items-center justify-center w-1/4 bg-[#f5f5f5] group overflow-hidden">
           <img
-            src={element.img}
+            src={element.images[0]}
             className="w-full aspect-square md:group-hover:scale-110 transitionMe -translate-y-5 object-cover"
             alt={element.name}
           />
