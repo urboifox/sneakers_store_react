@@ -126,7 +126,7 @@ button:disabled {
 }
 
 .itemsGrid {
-  @apply py-10;
+  @apply py-10 pb-20;
 }
 .itemsGrid {
   @apply grid gap-14;
