@@ -93,6 +93,14 @@ body::-webkit-scrollbar-thumb,
   box-shadow: 3px 3px 10px 0 hsl(26, 100%, 55%);
   @apply max-md:shadow-none;
 }
+.btn-secondary {
+  @apply px-8 py-2 rounded-lg text-white bg-sec-400 font-medium text-base lg:py-4 lg:px-14 lg:text-xl transitionMe;
+}
+.btn-secondary:hover,
+.btn:hover {
+  box-shadow: 3px 3px 10px 0 hsl(220 13% 13%);
+  @apply max-md:shadow-none;
+}
 .btn.clicked,
 .btn.clicked:hover {
   box-shadow: inset 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
@@ -134,7 +142,7 @@ button:disabled {
   row-gap: 4rem;
 }
 .sectionHeadline {
-  @apply tracking-wider relative mx-auto max-w-[600px] uppercase font-bold text-3xl md:text-4xl text-center my-14;
+  @apply tracking-wider relative mx-auto max-w-[600px] uppercase font-bold text-3xl md:text-4xl text-center my-14 max-sm:my-10;
 }
 
 .strokeText {
