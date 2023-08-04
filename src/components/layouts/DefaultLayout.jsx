@@ -12,6 +12,8 @@ import { ScrollTopRoute } from "..";
 import { AnimatePresence, motion } from "framer-motion";
 import routesAnimation from "../../routesAnimation";
 import AnimatedOutlet from "../AnimatedOutlet";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const animation = routesAnimation;
 
@@ -55,6 +57,7 @@ const DefaultLayout = () => {
           <Footer />
         </motion.div>
       </AnimatePresence>
+      <ToastContainer />
     </>
   );
 };

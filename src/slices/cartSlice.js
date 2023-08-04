@@ -1,9 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = {
   items: {},
 };
 
+const notify = (message) =>
+  toast(message, {
+    position: "bottom-right",
+    progressStyle: { background: "hsl(26, 100%, 55%)" },
+  });
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -14,8 +20,11 @@ const cartSlice = createSlice({
     toggleCartItem: (state, action) => {
       if (state.items[action.payload]) {
         delete state.items[action.payload];
+        console.log(1);
+        notify("Removed From Cart!");
       } else {
         state.items[action.payload] = 1;
+        notify("Added To Cart!");
       }
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
@@ -33,6 +42,7 @@ const cartSlice = createSlice({
     },
     addToCart: (state, action) => {
       state.items[action.payload.id] = action.payload.value;
+      notify("Added To Cart!");
       localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
   },

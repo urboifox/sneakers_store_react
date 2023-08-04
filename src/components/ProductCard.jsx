@@ -31,6 +31,7 @@ const ProductCard = ({ element, className }) => {
   const handlePopup = () => {
     dispatch(togglePopup(element.id));
   };
+
   return (
     <article className={`${className ? className : ""}`}>
       <AnimatePresence mode="wait" initial={true} onExitComplete={() => null}>
