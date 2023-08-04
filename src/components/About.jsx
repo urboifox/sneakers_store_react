@@ -2,6 +2,7 @@ import map from "../assets/treasure-map.svg";
 import cup from "../assets/cup.svg";
 import { ChevronDown } from "./";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const About = () => {
   const handleScrollDown = () => {
@@ -48,14 +49,24 @@ const About = () => {
               easily accessible to sneaker enthusiasts worldwide.
             </p>
           </div>
-          <div className="max-md:w-[150px] max-lg:w-[200px]">
+          <motion.div
+            drag
+            dragConstraints={{
+              top: 10,
+              left: 10,
+              right: 10,
+              bottom: 10,
+            }}
+            className="max-md:w-[150px] max-lg:w-[200px]"
+          >
             <img
+              draggable="false"
               loading="lazy"
               className="w-max -rotate-[25deg] animate-float"
               src={map}
               alt="journey map"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
       <div className="py-20 bg-primary-100">
@@ -78,14 +89,24 @@ const About = () => {
               easily accessible to sneaker enthusiasts worldwide.
             </p>
           </div>
-          <div className="max-md:w-[150px] max-lg:w-[200px] lg:w-[250px]">
+          <motion.div
+            drag
+            dragConstraints={{
+              top: 10,
+              left: 10,
+              right: 10,
+              bottom: 10,
+            }}
+            className="max-md:w-[150px] max-lg:w-[200px] lg:w-[250px]"
+          >
             <img
+              draggable="false"
               loading="lazy"
               className="max-w-full -rotate-[25deg] animate-float"
               src={cup}
               alt="journey map"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
       <div className="py-32 container mx-auto text-center flex flex-col items-center justify-center">
@@ -99,9 +120,15 @@ const About = () => {
           enthusiast, a street-style aficionado, or simply seeking comfortable
           everyday shoes, we have something special for everyone.
         </p>
-        <Link to="/collections" className="btn-primary mt-10">
-          Explore Sneakers
-        </Link>
+        <motion.div
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.1 }}
+          className="mt-14"
+        >
+          <Link to="/collections" className="btn-primary">
+            Explore Sneakers
+          </Link>
+        </motion.div>
       </div>
     </div>
   );

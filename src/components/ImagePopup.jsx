@@ -7,6 +7,7 @@ import {
 } from "../slices/productPageSlice";
 import { togglePopup } from "../slices/popupSlice";
 import { Chevron, CloseIcon } from ".";
+import { motion } from "framer-motion";
 
 const ImagePopup = ({ element }) => {
   const currentImageIndex = useSelector((state) => state.product.active);
@@ -25,13 +26,42 @@ const ImagePopup = ({ element }) => {
     dispatch(showNextImage());
   };
 
+  const popupAnimation = {
+    hidden: {
+      opacity: 0,
+      y: "-100vh",
+    },
+    visible: {
+      opacity: 1,
+      y: "0",
+      position: "fixed",
+      transition: {
+        type: "spring",
+        damping: 25,
+        stiffness: 150,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: "-100vh",
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 100,
+      },
+    },
+  };
   return (
-    <div
+    <motion.div
       className={`${
         visible ? "flex" : "hidden"
-      } z-[9999999999] top-0 left-0 fixed w-screen h-screen items-center justify-center bg-[hsla(219,9%,45%,50%)]`}
+      } z-[9999999999] transform-none top-0 left-0 fixed w-screen h-screen items-center justify-center bg-[hsla(219,9%,45%,50%)]`}
+      variants={popupAnimation}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
     >
-      <article className="relative max-w-2xl flex-col flex px-24 items-center gap-5 justify-center">
+      <article className="mx-auto relative max-w-2xl flex-col flex px-24 items-center gap-5 justify-center">
         <div
           className="cursor-pointer absolute right-0 top-0 flex items-center justify-center w-10 aspect-square fill-white hover:fill-primary-200"
           onClick={() => handlePopup()}
@@ -78,7 +108,7 @@ const ImagePopup = ({ element }) => {
           })}
         </div>
       </article>
-    </div>
+    </motion.div>
   );
 };
 

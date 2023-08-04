@@ -2,9 +2,10 @@ import SectionHeadline from "./SectionHeadline";
 
 const Contact = () => {
   return (
-    <div>
+    <>
       <SectionHeadline text="Contact Us" />
-    </div>
+      <section className="mt-20 max-sm:mt-16"></section>
+    </>
   );
 };
 

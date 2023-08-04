@@ -8,6 +8,7 @@ import { CardOverlay, HeartIcon, ImagePopup, RatingStars } from "./";
 import { toggleCartItem } from "../slices/cartSlice";
 import { Link, useLocation } from "react-router-dom";
 import { togglePopup } from "../slices/popupSlice";
+import { AnimatePresence } from "framer-motion";
 
 const ProductCard = ({ element, className }) => {
   const popupVisible = useSelector((state) => state.popup.visible);
@@ -32,11 +33,13 @@ const ProductCard = ({ element, className }) => {
   };
   return (
     <article className={`${className ? className : ""}`}>
-      {popupVisible && currentElement === element.id && (
-        <div className="max-md:hidden">
-          <ImagePopup element={element} />
-        </div>
-      )}
+      <AnimatePresence mode="wait" initial={true} onExitComplete={() => null}>
+        {popupVisible && currentElement === element.id && (
+          <div className="max-md:hidden">
+            <ImagePopup element={element} />
+          </div>
+        )}
+      </AnimatePresence>
       <div
         className={`relative transitionMe overflow-hidden rounded-xl group bg-[#f5f5f5] ${
           isFavourite ? "border border-primary-200 " : ""
@@ -101,7 +104,7 @@ const ProductCard = ({ element, className }) => {
           onClick={() => handleInCartToggle()}
           className={`${
             inCart ? "clicked" : ""
-          } relative group mt-3 w-8 btn aspect-square bg-primary-100 transitionMe md:hover:bg-primary-200 rounded-md p-[5px]`}
+          } relative group mt-3 w-8 btn aspect-square hover:!shadow-primary-200 bg-primary-100 transitionMe md:hover:bg-primary-200 rounded-md p-[5px]`}
         >
           <span className="max-lg:hidden popup">
             {inCart ? "Remove From Cart" : "Add To Cart"}

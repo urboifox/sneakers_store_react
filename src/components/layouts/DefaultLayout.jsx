@@ -1,6 +1,5 @@
-import { Outlet } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Navbar from "../Navbar";
-
 import { useEffect } from "react";
 import axios from "axios";
 import { initiateFavourites, setMainData } from "../../slices/dataSlice";
@@ -10,9 +9,15 @@ import { setIsLoading } from "../../slices/documentSlice";
 import Footer from "../Footer";
 import ScrollToTop from "../ScrollToTop";
 import { ScrollTopRoute } from "..";
+import { AnimatePresence, motion } from "framer-motion";
+import routesAnimation from "../../routesAnimation";
+import AnimatedOutlet from "../AnimatedOutlet";
+
+const animation = routesAnimation;
 
 const DefaultLayout = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     // fetch data once the app loads and set it inside the data slice
     const fetchData = async () => {
@@ -31,13 +36,25 @@ const DefaultLayout = () => {
     };
     fetchData();
   }, [dispatch]);
+
+  const location = useLocation();
   return (
     <>
       <ScrollToTop />
       <ScrollTopRoute />
       <Navbar />
-      <Outlet />
-      <Footer />
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={location.pathname}
+          variants={animation}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          <AnimatedOutlet />
+          <Footer />
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 };

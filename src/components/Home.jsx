@@ -1,6 +1,6 @@
 import sneakerImage from "../assets/home-sneaker.webp";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const Home = () => {
   return (
     <div>
@@ -17,18 +17,38 @@ const Home = () => {
           </p>
 
           <Link to="/collections">
-            <button className="bg-primary-200 mt-6 btn-primary">Explore</button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className=" w-fit h-fit mt-6"
+            >
+              <button className="bg-primary-200  btn-primary">Explore</button>
+            </motion.div>
           </Link>
         </div>
 
-        <div className="ml-auto sm:ml-0 -translate-y-[50%] md:-translate-y-10 max-w-[300px] md:max-w-[500px] w-[70%] md:w-[45%]  md:-translate-x-7  relative sneakerImage">
+        <motion.div
+          dragSnapToOrigin
+          dragConstraints={{
+            left: 50,
+            top: 50,
+            right: 50,
+            bottom: 50,
+          }}
+          drag
+          whileHover={{
+            scale: 1.1,
+          }}
+          className="ml-auto sm:ml-0 -translate-y-[50%] md:-translate-y-10 max-w-[300px] md:max-w-[500px] w-[70%] md:w-[45%]  md:-translate-x-7  relative sneakerImage"
+        >
           <img
+            draggable="false"
             loading="lazy"
             className="w-max -rotate-[25deg]"
             src={sneakerImage}
             alt="sneakers"
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

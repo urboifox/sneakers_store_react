@@ -14,6 +14,7 @@ html {
 body {
   font-size: 16px;
   font-family: "Kumbh Sans", sans-serif;
+  overflow-x: hidden;
 }
 body::-webkit-scrollbar {
   width: 3px;
@@ -97,7 +98,7 @@ body::-webkit-scrollbar-thumb,
   @apply px-8 py-2 rounded-lg text-white bg-sec-400 font-medium text-base lg:py-4 lg:px-14 lg:text-xl transitionMe;
 }
 .btn-secondary:hover,
-.btn:hover {
+.btn-secondary:hover {
   box-shadow: 3px 3px 10px 0 hsl(220 13% 13%);
   @apply max-md:shadow-none;
 }
@@ -142,7 +143,7 @@ button:disabled {
   row-gap: 4rem;
 }
 .sectionHeadline {
-  @apply tracking-wider relative mx-auto max-w-[600px] uppercase font-bold text-3xl md:text-4xl text-center my-14 max-sm:my-10;
+  @apply tracking-wider relative mx-auto max-w-[600px] uppercase font-bold text-3xl md:text-4xl text-center;
 }
 
 .strokeText {

@@ -15,7 +15,7 @@ const Women = () => {
   return (
     <>
       <SectionHeadline text="women's collection" />
-      <section className="container mx-auto  itemsGrid itemsSection">
+      <section className="mt-20 max-sm:mt-16 container mx-auto  itemsGrid itemsSection">
         {isLoading ? (
           <SkeletonCard count={8} />
         ) : (
