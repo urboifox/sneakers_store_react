@@ -16,7 +16,7 @@ const Home = () => {
             every step is a statement. Step into Sneaker Paradise!
           </p>
 
-          <Link to="/collections">
+          <Link className="w-fit block" to="/collections">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -27,20 +27,7 @@ const Home = () => {
           </Link>
         </div>
 
-        <motion.div
-          dragSnapToOrigin
-          dragConstraints={{
-            left: 50,
-            top: 50,
-            right: 50,
-            bottom: 50,
-          }}
-          drag
-          whileHover={{
-            scale: 1.1,
-          }}
-          className="ml-auto sm:ml-0 -translate-y-[50%] md:-translate-y-10 max-w-[300px] md:max-w-[500px] w-[70%] md:w-[45%]  md:-translate-x-7  relative sneakerImage"
-        >
+        <div className="ml-auto sm:ml-0 -translate-y-[50%] md:-translate-y-10 max-w-[300px] md:max-w-[500px] w-[70%] md:w-[45%]  md:-translate-x-7  relative sneakerImage">
           <img
             draggable="false"
             loading="lazy"
@@ -48,7 +35,7 @@ const Home = () => {
             src={sneakerImage}
             alt="sneakers"
           />
-        </motion.div>
+        </div>
       </div>
     </div>
   );

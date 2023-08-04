@@ -8,7 +8,7 @@ import { CardOverlay, HeartIcon, ImagePopup, RatingStars } from "./";
 import { toggleCartItem } from "../slices/cartSlice";
 import { Link, useLocation } from "react-router-dom";
 import { togglePopup } from "../slices/popupSlice";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const ProductCard = ({ element, className }) => {
   const popupVisible = useSelector((state) => state.popup.visible);
@@ -64,7 +64,9 @@ const ProductCard = ({ element, className }) => {
             %
           </span>
         ) : null}
-        <div
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           className="absolute w-6 z-50 top-4 right-4 cursor-pointer"
           onClick={() => handleFavToggle()}
         >
@@ -77,7 +79,7 @@ const ProductCard = ({ element, className }) => {
               alt="Add to Favourites"
             />
           )}
-        </div>
+        </motion.div>
       </div>
       <div className="font-[600] text-sec-400  mt-3 text-sm w-full flex items-start justify-between">
         <span className="inline-block font-medium text-xs text-primary-200">

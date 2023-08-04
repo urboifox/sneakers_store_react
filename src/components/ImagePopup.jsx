@@ -62,24 +62,42 @@ const ImagePopup = ({ element }) => {
       exit="exit"
     >
       <article className="mx-auto relative max-w-2xl flex-col flex px-24 items-center gap-5 justify-center">
-        <div
+        <motion.div
+          whileTap={{
+            scale: 0.9,
+          }}
+          whileHover={{
+            scale: 1.1,
+          }}
           className="cursor-pointer absolute right-0 top-0 flex items-center justify-center w-10 aspect-square fill-white hover:fill-primary-200"
           onClick={() => handlePopup()}
         >
           <CloseIcon class="scale-150 transition-all duration-150 " />
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          animate={{ y: "-50%", rotate: 180 }}
+          initial={{ y: "-50%", rotate: 180 }}
+          exit={{ y: "-50%", rotate: 180 }}
+          whileTap={{
+            scale: 0.9,
+          }}
           className="popupChevron rotate-180 left-16"
           onClick={() => handlePrevImage()}
         >
           <Chevron />
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          animate={{ y: "-50%" }}
+          initial={{ y: "-50%" }}
+          exit={{ y: "-50%" }}
+          whileTap={{
+            scale: 0.9,
+          }}
           className="popupChevron right-16"
           onClick={() => handleNextImage()}
         >
           <Chevron />
-        </div>
+        </motion.div>
         <div className="relative h-full border-white border-2 aspect-square flex items-center justify-center rounded-xl shadowMe overflow-hidden mb-5">
           <img
             className="max-w-full object-cover"
