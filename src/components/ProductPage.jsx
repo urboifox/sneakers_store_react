@@ -14,6 +14,7 @@ import ImagePopup from "./ImagePopup";
 import Skeleton from "react-loading-skeleton";
 import { togglePopup } from "../slices/popupSlice";
 import Chevron from "./icons/Chevron";
+import { AnimatePresence } from "framer-motion";
 
 const ProductPage = () => {
   const currentImageIndex = useSelector((state) => state.product.active);
@@ -46,7 +47,9 @@ const ProductPage = () => {
     <section className="max-md:pb-20 md:py-24 flex items-center md:justify-center md:container mx-auto flex-col md:flex-row ">
       {element && !isLoading ? (
         <>
-          {popupVisible && <ImagePopup element={element} />}
+          <AnimatePresence mode="wait">
+            {popupVisible && <ImagePopup element={element} />}
+          </AnimatePresence>
           <article className="lg:mb-20 max-w-xl flex md:px-10 xl:pr-44 items-center flex-col justify-center relative">
             <div className="flex relative md:border-white md:border-2 aspect-square max-w-full  items-center justify-center rounded-xl md:shadowMe overflow-hidden mb-10">
               <div className="hidden md:block" onClick={() => handlePopup()}>

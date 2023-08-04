@@ -51,11 +51,12 @@ const About = () => {
           </div>
           <motion.div
             drag
+            dragSnapToOrigin
             dragConstraints={{
-              top: 10,
-              left: 10,
-              right: 10,
-              bottom: 10,
+              top: 20,
+              left: 20,
+              right: 20,
+              bottom: 20,
             }}
             className="max-md:w-[150px] max-lg:w-[200px]"
           >
@@ -91,11 +92,12 @@ const About = () => {
           </div>
           <motion.div
             drag
+            dragSnapToOrigin
             dragConstraints={{
-              top: 10,
-              left: 10,
-              right: 10,
-              bottom: 10,
+              top: 20,
+              left: 20,
+              right: 20,
+              bottom: 20,
             }}
             className="max-md:w-[150px] max-lg:w-[200px] lg:w-[250px]"
           >
