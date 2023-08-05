@@ -7,11 +7,12 @@ import {
 } from "../slices/productPageSlice";
 import { togglePopup } from "../slices/popupSlice";
 import { Chevron, CloseIcon } from ".";
-import { motion } from "framer-motion";
-
+import { AnimatePresence, motion } from "framer-motion";
+import { imageAnimationBackward, imageAnimationForward } from "../animations";
 const ImagePopup = ({ element }) => {
   const currentImageIndex = useSelector((state) => state.product.active);
-  // const prevImageIndex = useSelector((state) => state.product.prev);
+  const prevImageIndex = useSelector((state) => state.product.prev);
+
   const dispatch = useDispatch();
   const handleImageChange = (i) => {
     dispatch(changeActiveImage(i));
@@ -99,18 +100,25 @@ const ImagePopup = ({ element }) => {
         >
           <Chevron />
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 0.1 } }}
-          className="relative h-full border-white border-2 aspect-square flex items-center justify-center rounded-xl shadowMe overflow-hidden mb-5"
-        >
-          <img
-            className="max-w-full object-cover"
-            src={element?.images[currentImageIndex]}
-            alt={element?.name}
-            loading="lazy"
-          />
-        </motion.div>
+        <div className="bg-white relative h-full aspect-square flex items-center justify-center rounded-xl shadowMe overflow-hidden mb-5">
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.img
+              key={currentImageIndex}
+              variants={
+                currentImageIndex > prevImageIndex
+                  ? imageAnimationForward
+                  : imageAnimationBackward
+              }
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="max-w-full object-cover"
+              src={element?.images[currentImageIndex]}
+              alt={element?.name}
+              loading="lazy"
+            />
+          </AnimatePresence>
+        </div>
         <div className=" flex items-center gap-5 max-w-sm justify-between">
           {element?.images.map((e, i) => {
             return (

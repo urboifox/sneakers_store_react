@@ -33,8 +33,10 @@ import StarIcon from "./icons/StarIcon";
 import CounterButtons from "./CounterButtons";
 import CardOverlay from "./CardOverlay";
 import ImagePopup from "./ImagePopup";
+import ShowCaseProducts from "./ShowCaseProducts";
 export {
   About,
+  ShowCaseProducts,
   ImagePopup,
   CardOverlay,
   CounterButtons,

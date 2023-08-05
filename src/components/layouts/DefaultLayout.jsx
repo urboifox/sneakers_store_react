@@ -10,7 +10,7 @@ import Footer from "../Footer";
 import ScrollToTop from "../ScrollToTop";
 import { ScrollTopRoute } from "..";
 import { AnimatePresence, motion } from "framer-motion";
-import routesAnimation from "../../routesAnimation";
+import { routesAnimation } from "../../animations";
 import AnimatedOutlet from "../AnimatedOutlet";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

@@ -1,6 +1,7 @@
 import sneakerImage from "../assets/home-sneaker.webp";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import ShowCaseProducts from "./ShowCaseProducts";
 const Home = () => {
   return (
     <div>
@@ -22,7 +23,7 @@ const Home = () => {
               whileTap={{ scale: 0.95 }}
               className=" w-fit h-fit mt-6"
             >
-              <button className="bg-primary-200  btn-primary">Explore</button>
+              <button className="bg-primary-200  btn-primary">Shop Now</button>
             </motion.div>
           </Link>
         </div>
@@ -37,6 +38,7 @@ const Home = () => {
           />
         </div>
       </div>
+      <ShowCaseProducts />
     </div>
   );
 };
