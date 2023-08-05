@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 const ImagePopup = ({ element }) => {
   const currentImageIndex = useSelector((state) => state.product.active);
-  const prevImageIndex = useSelector((state) => state.product.prev);
+  // const prevImageIndex = useSelector((state) => state.product.prev);
   const dispatch = useDispatch();
   const handleImageChange = (i) => {
     dispatch(changeActiveImage(i));
