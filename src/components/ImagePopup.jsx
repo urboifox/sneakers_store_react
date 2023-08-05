@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 
 const ImagePopup = ({ element }) => {
   const currentImageIndex = useSelector((state) => state.product.active);
+  const prevImageIndex = useSelector((state) => state.product.prev);
   const dispatch = useDispatch();
   const handleImageChange = (i) => {
     dispatch(changeActiveImage(i));
@@ -98,14 +99,18 @@ const ImagePopup = ({ element }) => {
         >
           <Chevron />
         </motion.div>
-        <div className="relative h-full border-white border-2 aspect-square flex items-center justify-center rounded-xl shadowMe overflow-hidden mb-5">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 0.1 } }}
+          className="relative h-full border-white border-2 aspect-square flex items-center justify-center rounded-xl shadowMe overflow-hidden mb-5"
+        >
           <img
             className="max-w-full object-cover"
             src={element?.images[currentImageIndex]}
             alt={element?.name}
             loading="lazy"
           />
-        </div>
+        </motion.div>
         <div className=" flex items-center gap-5 max-w-sm justify-between">
           {element?.images.map((e, i) => {
             return (

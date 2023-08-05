@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   return (
@@ -29,7 +30,16 @@ const Profile = () => {
             />
           </div>
           <div>
-            <Link className="text-sec-300 font-medium text-sm" to={null}>
+            <Link
+              onClick={() =>
+                toast("Take a breath! and remember your password.", {
+                  position: "bottom-right",
+                  progressStyle: { background: "hsl(26, 100%, 55%)" },
+                })
+              }
+              className="text-sec-300 font-medium text-sm"
+              to={null}
+            >
               Forgot Password?
             </Link>
             <div className="flex items-center gap-5 mt-10 max-sm:flex-col">

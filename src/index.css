@@ -243,6 +243,9 @@ footer li a {
   @apply absolute transition-colors duration-200 md:hover:bg-primary-200 shadow-lg md:hover:fill-white md:hover:shadow-primary-200 z-50 w-10 p-3 md:w-14 md:p-4 cursor-pointer top-[40%] shadowMe  fill-sec-400 bg-white rounded-full;
 }
 
+#contact-message {
+  resize: none;
+}
 @keyframes pebblesAnim {
   0% {
     right: -20%;
