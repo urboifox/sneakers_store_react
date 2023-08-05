@@ -14,10 +14,12 @@ import ImagePopup from "./ImagePopup";
 import Skeleton from "react-loading-skeleton";
 import { togglePopup } from "../slices/popupSlice";
 import Chevron from "./icons/Chevron";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { imageAnimationBackward, imageAnimationForward } from "../animations";
 
 const ProductPage = () => {
   const currentImageIndex = useSelector((state) => state.product.active);
+  const prevImageIndex = useSelector((state) => state.product.prev);
   const { id } = useParams();
   const isLoading = useSelector((state) => state.document.isLoading);
   const allItems = useSelector((state) => state.items.data);
@@ -55,12 +57,23 @@ const ProductPage = () => {
               <div className="hidden md:block" onClick={() => handlePopup()}>
                 <CardOverlay />
               </div>
-              <img
-                className="max-w-full object-cover w-96"
-                src={element.images[currentImageIndex]}
-                alt={element.name}
-                loading="lazy"
-              />
+              <AnimatePresence mode="popLayout" initial={false}>
+                <motion.img
+                  variants={
+                    currentImageIndex > prevImageIndex
+                      ? imageAnimationForward
+                      : imageAnimationBackward
+                  }
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  key={currentImageIndex}
+                  className="max-w-full object-cover w-96"
+                  src={element.images[currentImageIndex]}
+                  alt={element.name}
+                  loading="lazy"
+                />
+              </AnimatePresence>
             </div>
             <div className="md:hidden">
               <div

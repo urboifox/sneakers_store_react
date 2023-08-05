@@ -18,6 +18,31 @@ export const routesAnimation = {
   },
 };
 
+export const popupAnimation = {
+  hidden: {
+    opacity: 0,
+    y: "-100vh",
+  },
+  visible: {
+    opacity: 1,
+    y: "0",
+    position: "fixed",
+    transition: {
+      type: "spring",
+      damping: 25,
+      stiffness: 150,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: "-100vh",
+    transition: {
+      type: "spring",
+      damping: 20,
+      stiffness: 100,
+    },
+  },
+};
 export const imageAnimationForward = {
   hidden: {
     opacity: 0,

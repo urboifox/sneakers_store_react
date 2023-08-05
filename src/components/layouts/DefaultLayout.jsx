@@ -45,7 +45,7 @@ const DefaultLayout = () => {
       <ScrollToTop />
       <ScrollTopRoute />
       <Navbar />
-      <AnimatePresence mode="popLayout">
+      <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={location.pathname}
           variants={animation}

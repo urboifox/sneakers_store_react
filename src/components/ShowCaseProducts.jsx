@@ -11,7 +11,7 @@ const ShowCaseProducts = () => {
 
   return (
     <div className="my-10 lg:pb-20">
-      <SectionHeadline text={"TOP SNEAKERS"} />
+      <SectionHeadline text={"Popular Sneakers"} />
 
       <section className="mt-20 max-sm:mt-16 container mx-auto itemsGrid itemsSection">
         {isLoading ? (
@@ -25,14 +25,11 @@ const ShowCaseProducts = () => {
         )}
       </section>
       <Link to="/collections">
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          tabIndex={-1}
-          className="btn-primary mx-auto w-fit flex"
-        >
-          See All Collection
-        </motion.button>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }}>
+          <button tabIndex={-1} className="btn-primary mx-auto w-fit flex">
+            See All Collection
+          </button>
+        </motion.div>
       </Link>
     </div>
   );

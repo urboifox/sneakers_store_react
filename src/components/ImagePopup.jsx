@@ -8,7 +8,11 @@ import {
 import { togglePopup } from "../slices/popupSlice";
 import { Chevron, CloseIcon } from ".";
 import { AnimatePresence, motion } from "framer-motion";
-import { imageAnimationBackward, imageAnimationForward } from "../animations";
+import {
+  imageAnimationBackward,
+  imageAnimationForward,
+  popupAnimation,
+} from "../animations";
 const ImagePopup = ({ element }) => {
   const currentImageIndex = useSelector((state) => state.product.active);
   const prevImageIndex = useSelector((state) => state.product.prev);
@@ -28,31 +32,6 @@ const ImagePopup = ({ element }) => {
     dispatch(showNextImage());
   };
 
-  const popupAnimation = {
-    hidden: {
-      opacity: 0,
-      y: "-100vh",
-    },
-    visible: {
-      opacity: 1,
-      y: "0",
-      position: "fixed",
-      transition: {
-        type: "spring",
-        damping: 25,
-        stiffness: 150,
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: "-100vh",
-      transition: {
-        type: "spring",
-        damping: 20,
-        stiffness: 100,
-      },
-    },
-  };
   return (
     <motion.div
       className={`${
