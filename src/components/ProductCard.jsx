@@ -94,7 +94,9 @@ const ProductCard = ({ element, className }) => {
       </div>
       <div className="flex items-start justify-between">
         <Link
-          to={`${location.pathname}/${element.id}`}
+          to={`${
+            location.pathname === "/" ? "collections" : location.pathname
+          }/${element.id}`}
           className="flex flex-col w-full cursor-pointer"
         >
           <h2 className="uppercase text-sm font-bold w-[80%] mb-2">
